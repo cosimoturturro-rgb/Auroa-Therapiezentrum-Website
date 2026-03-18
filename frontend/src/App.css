@@ -1,34 +1,54 @@
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --aurora-primary: #0e4a6a;
+  --aurora-primary-light: #1a6b94;
+  --aurora-secondary: #14b8a6;
+  --aurora-secondary-light: #2dd4bf;
+  --aurora-background: #f8fafc;
+  --aurora-foreground: #0f172a;
+  --aurora-muted: #f1f5f9;
+  --aurora-muted-foreground: #64748b;
+  --aurora-card: #ffffff;
+  --aurora-border: #e2e8f0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+* {
+  box-sizing: border-box;
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--aurora-background);
+  color: var(--aurora-foreground);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
 }
 
-.App-link {
-    color: #61dafb;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Libre Baskerville', serif;
+  font-weight: 700;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+.App {
+  min-height: 100vh;
+}
+
+/* Custom selection color */
+::selection {
+  background-color: var(--aurora-secondary);
+  color: white;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles for accessibility */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--aurora-secondary);
+  outline-offset: 2px;
 }
