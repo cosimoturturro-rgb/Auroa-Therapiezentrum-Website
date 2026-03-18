@@ -5,7 +5,7 @@ Der Benutzer möchte die Internetseite https://www.aurora-therapiezentrum.de/kop
 - Nur Bilder und Titel erscheinen zunächst
 - Beim Klick auf einen Experten öffnet sich ein Raumbild und die Beschreibung
 - Die Karte klappt auf/erweitert sich (nicht Modal)
-- Hell & freundlich mit bestehender Aurora-Farbwelt (dunkelblau/türkis)
+- **Option A gewählt**: Design soll zum Original Aurora Wix-Design passen
 - Kategorien beibehalten (Psychotherapie, Coaching, Physiotherapie/Osteopathie)
 - Platzhalter-Bilder für Therapieräume
 
@@ -13,7 +13,7 @@ Der Benutzer möchte die Internetseite https://www.aurora-therapiezentrum.de/kop
 - **Frontend**: React 19 mit Tailwind CSS
 - **Animations**: Framer Motion für flüssige Aufklapp-Animationen
 - **Icons**: Lucide React
-- **Fonts**: Libre Baskerville (Überschriften), Inter (Text)
+- **Images**: Original Aurora Wix-Bilder für Experten
 - **Colors**: Aurora Brand Colors (#0e4a6a Primary, #14b8a6 Secondary)
 
 ## User Personas
@@ -31,18 +31,18 @@ Der Benutzer möchte die Internetseite https://www.aurora-therapiezentrum.de/kop
 
 ## What's Been Implemented
 ### 2026-01-23
-- ✅ Komplettes Redesign der Experten-Seite
-- ✅ Header mit Navigation (Startseite, Experten, Angebot, Kontakt)
-- ✅ Hero-Sektion mit Aurora-Branding
-- ✅ 4 Experten-Karten mit aufklappbarer Funktion:
-  - Daniel Karg (Psychotherapie)
-  - Ulrich Passow (Psychotherapie)
-  - Carina Roy (Coaching)
-  - Michaela Stabenow (Physiotherapie/Osteopathie)
-- ✅ Sanfte Framer Motion Animationen
-- ✅ Responsive Mobile-Ansicht mit Hamburger-Menü
-- ✅ Footer mit Links zur Hauptseite
-- ✅ Kontakt-Sektion
+- ✅ Experten-Seite im Original Aurora Wix-Design
+- ✅ Hero-Sektion mit Original Aurora Header-Bild
+- ✅ 4 Experten-Karten mit aufklappbarer Funktion (Klick = Raumbild + Beschreibung):
+  - Daniel Karg (Psychotherapie) - Original Wix-Bild
+  - Ulrich Passow (Psychotherapie) - Original Wix-Bild
+  - Carina Roy (Coaching) - Original Wix-Bild
+  - Michaela Stabenow (Physiotherapie/Osteopathie) - Original Wix-Bild
+- ✅ Sanfte Framer Motion Aufklapp-Animationen
+- ✅ Kontakt-Links (E-Mail, Website, Telefon) im aufgeklappten Zustand
+- ✅ Kategorien-Überschriften (Psychotherapie, Coaching, Physiotherapie und Osteopathie)
+- ✅ Kontakt-Sektion am Ende
+- ✅ Design passt zum restlichen Aurora Wix-Website
 
 ## Prioritized Backlog
 ### P0 (Critical) - Done
