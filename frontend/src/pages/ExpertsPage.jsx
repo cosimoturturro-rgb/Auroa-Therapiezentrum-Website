@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Phone, Globe, ChevronDown } from "lucide-react";
+import { Mail, Phone, Globe, ChevronDown, Menu, X } from "lucide-react";
 
 // Expert data from Aurora Therapiezentrum - using original images from Wix
 const expertsData = [
@@ -49,6 +49,81 @@ const expertsData = [
 ];
 
 const categories = ["Psychotherapie", "Coaching", "Physiotherapie und Osteopathie"];
+
+// Navigation Component - Matching Aurora Wix Style
+const Navigation = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const navLinks = [
+    { name: "Aurora", href: "https://www.aurora-therapiezentrum.de" },
+    { name: "Angebot", href: "https://www.aurora-therapiezentrum.de/copy-of-about-us-1" },
+    { name: "Experten", href: "#", active: true },
+    { name: "Kontakt und Anreise", href: "https://www.aurora-therapiezentrum.de/contact" },
+  ];
+
+  return (
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0e3a5a]/95 backdrop-blur-sm">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-end h-14">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className={`text-sm tracking-wide transition-colors duration-200 ${
+                  link.active 
+                    ? "text-[#14b8a6]" 
+                    : "text-gray-300 hover:text-white"
+                }`}
+                data-testid={`nav-${link.name.toLowerCase().replace(/\s+/g, '-')}`}
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button 
+            className="md:hidden p-2 text-white"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            data-testid="mobile-menu-btn"
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+
+        {/* Mobile Navigation */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              className="md:hidden overflow-hidden pb-4"
+            >
+              <div className="flex flex-col gap-2">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    className={`px-4 py-2 text-sm ${
+                      link.active 
+                        ? "text-[#14b8a6]" 
+                        : "text-gray-300 hover:text-white"
+                    }`}
+                  >
+                    {link.name}
+                  </a>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </nav>
+  );
+};
 
 // Expert Card Component - Original Aurora Style with expand functionality
 const ExpertCard = ({ expert }) => {
@@ -174,8 +249,11 @@ const ExpertCard = ({ expert }) => {
 export default function ExpertsPage() {
   return (
     <div className="min-h-screen bg-white">
+      {/* Navigation */}
+      <Navigation />
+
       {/* Hero Section - Like Original */}
-      <section className="relative">
+      <section className="relative pt-14">
         <div 
           className="h-[420px] bg-cover bg-center"
           style={{
