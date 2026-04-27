@@ -695,6 +695,58 @@ export default function RoomRentalPage() {
             </div>
           </div>
 
+          {/* How it works - Info Box */}
+          <div className="mb-12 p-6 bg-[#0e4a6a]/5 border border-[#0e4a6a]/20 rounded-xl">
+            <h3 className="font-semibold text-[#0e4a6a] mb-4 text-lg">So funktioniert die Buchung</h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="flex gap-3">
+                <div className="w-8 h-8 bg-[#0e4a6a] text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">1</div>
+                <div>
+                  <p className="font-medium text-gray-800">Konto erstellen</p>
+                  <p className="text-sm text-gray-600">Registrieren Sie sich kostenlos mit Ihren Daten</p>
+                </div>
+              </div>
+              <div className="flex gap-3">
+                <div className="w-8 h-8 bg-[#0e4a6a] text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">2</div>
+                <div>
+                  <p className="font-medium text-gray-800">Freischaltung abwarten</p>
+                  <p className="text-sm text-gray-600">Wir prüfen Ihre Anfrage und schalten Ihr Konto frei</p>
+                </div>
+              </div>
+              <div className="flex gap-3">
+                <div className="w-8 h-8 bg-[#14b8a6] text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">3</div>
+                <div>
+                  <p className="font-medium text-gray-800">Termin buchen & bezahlen</p>
+                  <p className="text-sm text-gray-600">Wählen Sie Datum & Zeit und bezahlen Sie online</p>
+                </div>
+              </div>
+            </div>
+            
+            {!user && (
+              <div className="mt-6 pt-4 border-t border-[#0e4a6a]/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p className="text-[#0e4a6a] font-medium">
+                  Noch kein Konto? Jetzt registrieren und nach Freischaltung Termine buchen.
+                </p>
+                <button
+                  onClick={() => { setAuthMode("register"); setShowAuth(true); }}
+                  className="px-6 py-2.5 bg-[#0e4a6a] text-white rounded-lg hover:bg-[#1a6b94] transition-colors whitespace-nowrap"
+                  data-testid="register-cta-btn"
+                >
+                  Jetzt registrieren
+                </button>
+              </div>
+            )}
+            
+            {user && !user.is_approved && (
+              <div className="mt-6 pt-4 border-t border-yellow-300 bg-yellow-50 -mx-6 -mb-6 px-6 py-4 rounded-b-xl">
+                <p className="text-yellow-800 font-medium flex items-center gap-2">
+                  <Clock className="w-5 h-5" />
+                  Ihr Konto wartet auf Freischaltung. Sie werden per E-Mail benachrichtigt.
+                </p>
+              </div>
+            )}
+          </div>
+
           {/* Opening Hours */}
           <div className="mb-12 p-6 bg-gray-50 rounded-xl">
             <h3 className="font-semibold mb-4">Öffnungszeiten</h3>
