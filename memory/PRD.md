@@ -30,7 +30,7 @@ Der Benutzer möchte die Internetseite https://www.aurora-therapiezentrum.de/kop
 - [x] Kontakt-Sektion
 
 ## What's Been Implemented
-### 2026-01-23
+### 2026-01-23 - Experten-Seite
 - ✅ Experten-Seite im Original Aurora Wix-Design
 - ✅ Hero-Sektion mit Original Aurora Header-Bild
 - ✅ 4 Experten-Karten mit aufklappbarer Funktion (Klick = Raumbild + Beschreibung):
@@ -43,6 +43,22 @@ Der Benutzer möchte die Internetseite https://www.aurora-therapiezentrum.de/kop
 - ✅ Kategorien-Überschriften (Psychotherapie, Coaching, Physiotherapie und Osteopathie)
 - ✅ Kontakt-Sektion am Ende
 - ✅ Design passt zum restlichen Aurora Wix-Website
+
+### 2026-01-23 - Raumvermietungs-System (NEU)
+- ✅ Neue Seite /raumvermietung für Gruppentherapieraum-Vermietung
+- ✅ Neuer Navigations-Reiter "Raumvermietung"
+- ✅ Benutzerregistrierung mit Admin-Freigabe-System
+- ✅ JWT-basierte Authentifizierung
+- ✅ Online-Buchungskalender mit Zeitslot-Auswahl
+- ✅ Preisgestaltung: 25€/Stunde + 5€/Stunde für elektr. Flipchart
+- ✅ Öffnungszeiten: Mo-Do 8-19, Fr 8-16, Sa 9-16, So geschlossen
+- ✅ Stripe-Zahlung integriert
+- ✅ Admin-Dashboard (/admin) für:
+  - Benutzerfreigaben
+  - Buchungsübersicht
+  - Umsatzstatistiken
+- ✅ E-Mail-Benachrichtigungen (vorbereitet, benötigt Resend API-Key)
+- ✅ Admin-Zugangsdaten: admin@aurora-therapiezentrum.de / Aurora2024!
 
 ## Prioritized Backlog
 ### P0 (Critical) - Done
