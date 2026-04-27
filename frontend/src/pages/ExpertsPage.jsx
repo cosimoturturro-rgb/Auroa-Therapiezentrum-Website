@@ -57,7 +57,8 @@ const Navigation = () => {
   const navLinks = [
     { name: "Aurora", href: "https://www.aurora-therapiezentrum.de" },
     { name: "Angebot", href: "https://www.aurora-therapiezentrum.de/copy-of-about-us-1" },
-    { name: "Experten", href: "#", active: true },
+    { name: "Experten", href: "/", active: true },
+    { name: "Raumvermietung", href: "/raumvermietung" },
     { name: "Kontakt und Anreise", href: "https://www.aurora-therapiezentrum.de/contact" },
   ];
 
