@@ -34,6 +34,15 @@ const expertsData = [
     description: "Als approbierter Kinder- und Jugendlichenpsychotherapeut begleite ich Säuglinge, Kinder, Jugendliche und junge Erwachsene sowie ihre Familien in herausfordernden Lebensphasen. Grundlage meiner Arbeit ist die tiefenpsychologisch-analytische Psychotherapie mit einer bindungsorientierten Haltung. Im Mittelpunkt stehen für mich nicht nur Symptome oder Schwierigkeiten, sondern der Mensch mit seiner individuellen Geschichte, seinen Beziehungen und seinem emotionalen Erleben. Viele seelische Belastungen zeigen sich im Alltag, in der Schule, im Verhalten oder in Beziehungen — häufig stehen sie im Zusammenhang mit inneren Konflikten, Unsicherheiten oder belastenden Erfahrungen. Der psychodynamische Ansatz hilft dabei, diese Zusammenhänge besser zu verstehen. Frühe Beziehungserfahrungen prägen, wie wir uns selbst erleben, wie wir anderen vertrauen und wie wir mit Nähe, Konflikten oder Belastungen umgehen. Solche inneren Beziehungsmuster können im therapeutischen Prozess sichtbar, verstehbar und veränderbar werden. Gemeinsam schauen wir darauf, wie Gefühle, Erfahrungen und Beziehungen das Erleben und Verhalten beeinflussen. Besonders wichtig ist mir dabei eine sichere und vertrauensvolle therapeutische Beziehung, denn Entwicklung entsteht dort, wo Menschen sich verstanden, angenommen und emotional gehalten fühlen."
   },
   {
+    id: "sarah-bauer",
+    name: "Sarah Bauer",
+    role: "Analytisch und tiefenpsychologisch fundierte Kinder- und Jugendlichenpsychotherapeutin",
+    category: "Psychotherapie",
+    image: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/d2aplacm_Sarah%20Bild.jpeg",
+    roomImage: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/s41ovhul_Bauer%20Raum.jpeg",
+    description: "Der Weg des Heranwachsens ist voller Entwicklungsschritte, Entdeckungen, aber auch Herausforderungen. Manchmal fühlen sich diese Phasen überwältigend an - für das Kind selbst und für die ganze Familie. Als analytisch und tiefenpsychologisch fundiert ausgebildete Kinder- und Jugendlichenpsychotherapeutin liegt mein Fokus nicht nur darauf, Symptome zu lindern, sondern auch die tieferliegenden Ursachen zu verstehen. Wir schauen gemeinsam auf die frühen Erfahrungen, die aktuelle Lebenssituation und die unbewussten Muster, die das tägliche Handeln prägen."
+  },
+  {
     id: "ulrich-passow",
     name: "Ulrich Passow",
     role: "Praxis für systemische Therapie und Hypnotherapie",
