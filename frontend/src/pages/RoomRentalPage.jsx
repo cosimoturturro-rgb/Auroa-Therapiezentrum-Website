@@ -15,8 +15,11 @@ const AuthContext = createContext(null);
 
 const useAuth = () => useContext(AuthContext);
 
-// Room images - echte Bilder vom Gruppentherapieraum
-const roomImages = [
+// Hero banner image
+const heroBannerImage = "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/eh6wyeb2_1cabd9dd-dc2f-4531-9374-2e0bda0d78bc.png";
+
+// Room gallery images - echte Bilder vom Gruppentherapieraum
+const roomGalleryImages = [
   "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/boiuyokm_WhatsApp%20Image%202026-06-09%20at%2010.05.14.jpeg",
   "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/quamqpm4_WhatsApp%20Image%202026-06-09%20at%2010.05.14%20%281%29.jpeg"
 ];
@@ -485,7 +488,6 @@ export default function RoomRentalPage() {
   const [notes, setNotes] = useState("");
   const [loading, setLoading] = useState(false);
   const [bookingSuccess, setBookingSuccess] = useState(null);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [myBookings, setMyBookings] = useState([]);
   const [lightboxImage, setLightboxImage] = useState(null);
 
@@ -637,28 +639,15 @@ export default function RoomRentalPage() {
           </div>
         </nav>
 
-        {/* Hero Section */}
+        {/* Hero Section - Single Banner Image */}
         <section className="pt-14 relative">
           <div className="h-[400px] relative overflow-hidden">
             <img
-              src={roomImages[currentImageIndex]}
-              alt="Gruppentherapieraum"
+              src={heroBannerImage}
+              alt="Gruppentherapie"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-            
-            {/* Image navigation */}
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
-              {roomImages.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setCurrentImageIndex(idx)}
-                  className={`w-3 h-3 rounded-full transition-colors ${
-                    idx === currentImageIndex ? "bg-white" : "bg-white/50"
-                  }`}
-                />
-              ))}
-            </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20" />
             
             <div className="absolute bottom-12 left-0 right-0 text-center text-white">
               <h1 className="text-4xl font-semibold mb-2">Gruppentherapieraum</h1>
@@ -671,10 +660,7 @@ export default function RoomRentalPage() {
         <section className="py-12 px-4 max-w-6xl mx-auto">
           <h2 className="text-2xl font-semibold text-gray-800 text-center mb-8">Impressionen vom Gruppentherapieraum</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[
-              "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/boiuyokm_WhatsApp%20Image%202026-06-09%20at%2010.05.14.jpeg",
-              "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/quamqpm4_WhatsApp%20Image%202026-06-09%20at%2010.05.14%20%281%29.jpeg"
-            ].map((img, idx) => (
+            {roomGalleryImages.map((img, idx) => (
               <div 
                 key={idx} 
                 className="aspect-[4/3] rounded-xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity shadow-lg"
