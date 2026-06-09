@@ -15,11 +15,10 @@ const AuthContext = createContext(null);
 
 const useAuth = () => useContext(AuthContext);
 
-// Room images (placeholders - will be replaced with actual images)
+// Room images - echte Bilder vom Gruppentherapieraum
 const roomImages = [
-  "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=500&fit=crop",
-  "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&h=500&fit=crop",
-  "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800&h=500&fit=crop"
+  "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/boiuyokm_WhatsApp%20Image%202026-06-09%20at%2010.05.14.jpeg",
+  "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/quamqpm4_WhatsApp%20Image%202026-06-09%20at%2010.05.14%20%281%29.jpeg"
 ];
 
 // ============== AUTH COMPONENTS ==============
@@ -671,23 +670,17 @@ export default function RoomRentalPage() {
         {/* Room Gallery */}
         <section className="py-12 px-4 max-w-6xl mx-auto">
           <h2 className="text-2xl font-semibold text-gray-800 text-center mb-8">Impressionen vom Gruppentherapieraum</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
-              "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=300&fit=crop",
-              "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=400&h=300&fit=crop",
-              "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=400&h=300&fit=crop",
-              "https://images.unsplash.com/photo-1564069114553-7215e1ff1890?w=400&h=300&fit=crop",
-              "https://images.unsplash.com/photo-1517502884422-41eaead166d4?w=400&h=300&fit=crop",
-              "https://images.unsplash.com/photo-1497215842964-222b430dc094?w=400&h=300&fit=crop",
-              "https://images.unsplash.com/photo-1604328698692-f76ea9498e76?w=400&h=300&fit=crop",
-              "https://images.unsplash.com/photo-1462826303086-329426d1aef5?w=400&h=300&fit=crop"
+              "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/boiuyokm_WhatsApp%20Image%202026-06-09%20at%2010.05.14.jpeg",
+              "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/quamqpm4_WhatsApp%20Image%202026-06-09%20at%2010.05.14%20%281%29.jpeg"
             ].map((img, idx) => (
               <div 
                 key={idx} 
-                className="aspect-[4/3] rounded-lg overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
-                onClick={() => setLightboxImage(img.replace('w=400&h=300', 'w=1200&h=900'))}
+                className="aspect-[4/3] rounded-xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity shadow-lg"
+                onClick={() => setLightboxImage(img)}
               >
-                <img src={img} alt={`Raum Impression ${idx + 1}`} className="w-full h-full object-cover" />
+                <img src={img} alt={`Gruppentherapieraum ${idx + 1}`} className="w-full h-full object-cover" />
               </div>
             ))}
           </div>
