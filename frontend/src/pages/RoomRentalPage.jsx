@@ -709,8 +709,15 @@ export default function RoomRentalPage() {
               <div className="w-12 h-12 bg-[#0e4a6a] rounded-full flex items-center justify-center mx-auto mb-3">
                 <Users className="w-6 h-6 text-white" />
               </div>
-              <h3 className="font-semibold mb-1">Ausstattung</h3>
-              <p className="text-sm text-gray-600">Klimatisiert, WLAN, flexible Bestuhlung</p>
+              <h3 className="font-semibold mb-2">Ausstattung</h3>
+              <ul className="text-sm text-gray-600 text-left space-y-1">
+                <li>• Klimatisiert</li>
+                <li>• WLAN inklusive</li>
+                <li>• Flexible Bestuhlung</li>
+                <li>• Eigenes separates WC</li>
+                <li>• Küchenzeile mit Ausstattung</li>
+                <li>• Individueller Stauraum</li>
+              </ul>
             </div>
           </div>
 
