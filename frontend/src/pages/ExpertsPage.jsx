@@ -2,28 +2,9 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Phone, Globe, ChevronDown, Menu, X } from "lucide-react";
 
-// Expert data from Aurora Therapiezentrum - using original images from Wix
+// Expert data from Aurora Therapiezentrum - alphabetisch nach Nachnamen sortiert
 const expertsData = [
-  {
-    id: "elena-berkus",
-    name: "Elena Berkus",
-    role: "Tiefenpsychologisch fundierte Kinder- und Jugendlichenpsychotherapeutin",
-    category: "Psychotherapie",
-    image: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/ul805lna_Berkus%20Bild.jpeg",
-    roomImage: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/v5soysdv_Berkus%20Raum.jpeg",
-    description: "In meiner Praxis biete ich tiefenpsychologisch fundierte Psychotherapie für Kinder und Jugendliche in einem geschützten und wertschätzenden Rahmen an. Dabei verbinde ich fachliche Professionalität mit einer empathischen, zugewandten Haltung und einem sicheren therapeutischen Beziehungsangebot. Durch meine langjährige Tätigkeit in der Begleitung und Zusammenarbeit mit Pflegefamilien verfüge ich über einen umfangreichen Erfahrungsschatz im Umgang mit komplexen Entwicklungsbedingungen, Bindungsstörungen, Traumafolgen und familiären Belastungssituationen. Mein therapeutischer Ansatz orientiert sich an den individuellen Bedürfnissen des Kindes oder Jugendlichen und unterstützt emotionale Stabilisierung, Entwicklungsschritte sowie die Stärkung persönlicher Ressourcen und Beziehungskompetenzen."
-  },
-  {
-    id: "daniel-karg",
-    name: "Daniel Karg",
-    role: "Tiefenpsychologisch fundierter Kinder- und Jugendlichenpsychotherapeut",
-    category: "Psychotherapie",
-    image: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/hv49vpad_Dani%20bild.jpeg",
-    imageStyle: { objectPosition: "center 25%" },
-    roomImage: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/0s32f5np_Dani%20raum.jpeg",
-    description: "Im Kontakt mit meinen Patienten ist es mir wichtig, Kinder und Jugendliche in ihrer emotionalen Entwicklung zu verstehen und gemeinsam mit ihnen sowie ihren Bezugspersonen Raum für Entwicklung, neue Perspektiven und Lösungswege zu finden. Ich arbeite beziehungsorientiert und mentalisierungsbasiert mit einem tiefen Verständnis für unbewusste seelische Prozesse. Eine vertrauensvolle therapeutische Beziehung ist dabei die Grundlage für jeden Veränderungsprozess.",
-    email: "d.karg@aurora-therapiezentrum.de"
-  },
+  // PSYCHOTHERAPIE - alphabetisch nach Nachnamen
   {
     id: "markus-bauer",
     name: "Markus Bauer",
@@ -42,6 +23,46 @@ const expertsData = [
     imageStyle: { objectPosition: "center 20%" },
     roomImage: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/s41ovhul_Bauer%20Raum.jpeg",
     description: "Der Weg des Heranwachsens ist voller Entwicklungsschritte, Entdeckungen, aber auch Herausforderungen. Manchmal fühlen sich diese Phasen überwältigend an - für das Kind selbst und für die ganze Familie. Als analytisch und tiefenpsychologisch fundiert ausgebildete Kinder- und Jugendlichenpsychotherapeutin liegt mein Fokus nicht nur darauf, Symptome zu lindern, sondern auch die tieferliegenden Ursachen zu verstehen. Wir schauen gemeinsam auf die frühen Erfahrungen, die aktuelle Lebenssituation und die unbewussten Muster, die das tägliche Handeln prägen."
+  },
+  {
+    id: "alisha-berchtold",
+    name: "Alisha Berchtold",
+    role: "Praxis für systemische Einzel-, Paar und Familientherapie und systemische Beratung",
+    category: "Psychotherapie",
+    image: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/f97210dy_Alisha%20Bild.jpeg",
+    imageStyle: { objectPosition: "70% 15%" },
+    roomImage: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/v5soysdv_Berkus%20Raum.jpeg",
+    description: "In Gesprächen ermögliche ich einen Rahmen, um neue Perspektiven zu eröffnen und eigene (Beziehungs-) Muster zu erkennen. Dabei ist meine Haltung und meine Arbeitsweise vom systemischen Denken geprägt. Dies bedeutet für mich Personen mit ihren Themen nicht isoliert, sondern im Zusammenhang und in Wechselwirkung im Kontext ihres sozialen System zu betrachten. Meine Arbeit ist außerdem von Wertschätzung, Offenheit und Neugier geprägt."
+  },
+  {
+    id: "elena-berkus",
+    name: "Elena Berkus",
+    role: "Tiefenpsychologisch fundierte Kinder- und Jugendlichenpsychotherapeutin",
+    category: "Psychotherapie",
+    image: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/ul805lna_Berkus%20Bild.jpeg",
+    roomImage: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/v5soysdv_Berkus%20Raum.jpeg",
+    description: "In meiner Praxis biete ich tiefenpsychologisch fundierte Psychotherapie für Kinder und Jugendliche in einem geschützten und wertschätzenden Rahmen an. Dabei verbinde ich fachliche Professionalität mit einer empathischen, zugewandten Haltung und einem sicheren therapeutischen Beziehungsangebot. Durch meine langjährige Tätigkeit in der Begleitung und Zusammenarbeit mit Pflegefamilien verfüge ich über einen umfangreichen Erfahrungsschatz im Umgang mit komplexen Entwicklungsbedingungen, Bindungsstörungen, Traumafolgen und familiären Belastungssituationen. Mein therapeutischer Ansatz orientiert sich an den individuellen Bedürfnissen des Kindes oder Jugendlichen und unterstützt emotionale Stabilisierung, Entwicklungsschritte sowie die Stärkung persönlicher Ressourcen und Beziehungskompetenzen."
+  },
+  {
+    id: "veronika-hartl",
+    name: "Veronika Hartl",
+    role: "Psychologin (M.Sc.), Psychotherapeutin in Ausbildung",
+    category: "Psychotherapie",
+    image: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/6j2wt6jk_veronika%20bild.png",
+    imageStyle: { objectPosition: "center 15%" },
+    roomImage: null,
+    description: "Ich konzentriere mich in der Psychotherapie auf eine klassisch tiefenpsychologisch fundierte Vorgehensweise. Die tiefenpsychologisch fundierte Psychotherapie geht davon aus, dass aktuelle Belastungen und wiederkehrende Schwierigkeiten oft mit unbewussten inneren Konflikten und früheren Erfahrungen zusammenhängen. Gemeinsam mit dem Therapeuten werden diese Zusammenhänge im Gespräch verständlich gemacht, um neue Wege im Umgang mit sich selbst und anderen zu entwickeln. Neben der tiefenpsychologisch fundierten Psychotherapie biete ich vor allem psychoonkologische Begleitung und Trauergespräche für Hinterbliebene an."
+  },
+  {
+    id: "daniel-karg",
+    name: "Daniel Karg",
+    role: "Tiefenpsychologisch fundierter Kinder- und Jugendlichenpsychotherapeut",
+    category: "Psychotherapie",
+    image: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/hv49vpad_Dani%20bild.jpeg",
+    imageStyle: { objectPosition: "center 25%" },
+    roomImage: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/0s32f5np_Dani%20raum.jpeg",
+    description: "Im Kontakt mit meinen Patienten ist es mir wichtig, Kinder und Jugendliche in ihrer emotionalen Entwicklung zu verstehen und gemeinsam mit ihnen sowie ihren Bezugspersonen Raum für Entwicklung, neue Perspektiven und Lösungswege zu finden. Ich arbeite beziehungsorientiert und mentalisierungsbasiert mit einem tiefen Verständnis für unbewusste seelische Prozesse. Eine vertrauensvolle therapeutische Beziehung ist dabei die Grundlage für jeden Veränderungsprozess.",
+    email: "d.karg@aurora-therapiezentrum.de"
   },
   {
     id: "karin-kraus",
@@ -64,34 +85,25 @@ const expertsData = [
     description: "In 15 Jahren habe ich in den unterschiedlichsten Kontexten mit Menschen gearbeitet und sie in Ihren Lebenswegen unterstützt. Während und nach meinem Studium habe ich besonders mit Jugendlichen und Familien gearbeitet. Nach meiner Ausbildung zum Systemischen Therapeuten arbeite ich nun auch viel mit Paaren und Eltern. Ich glaube manchmal ist ein neutraler, aber wertschätzender Blick von Außen notwendig um Muster aufzubrechen, Veränderung zu erzeugen oder einfach eine gelassenere Haltung zu entwickeln."
   },
   {
-    id: "alisha-berchtold",
-    name: "Alisha Berchtold",
-    role: "Praxis für systemische Einzel-, Paar und Familientherapie und systemische Beratung",
-    category: "Psychotherapie",
-    image: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/f97210dy_Alisha%20Bild.jpeg",
-    imageStyle: { objectPosition: "70% 15%" },
-    roomImage: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/v5soysdv_Berkus%20Raum.jpeg",
-    description: "In Gesprächen ermögliche ich einen Rahmen, um neue Perspektiven zu eröffnen und eigene (Beziehungs-) Muster zu erkennen. Dabei ist meine Haltung und meine Arbeitsweise vom systemischen Denken geprägt. Dies bedeutet für mich Personen mit ihren Themen nicht isoliert, sondern im Zusammenhang und in Wechselwirkung im Kontext ihres sozialen System zu betrachten. Meine Arbeit ist außerdem von Wertschätzung, Offenheit und Neugier geprägt."
-  },
-  {
-    id: "veronika-hartl",
-    name: "Veronika Hartl",
-    role: "Psychologin (M.Sc.), Psychotherapeutin in Ausbildung",
-    category: "Psychotherapie",
-    image: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/6j2wt6jk_veronika%20bild.png",
-    imageStyle: { objectPosition: "center 15%" },
-    roomImage: null,
-    description: "Ich konzentriere mich in der Psychotherapie auf eine klassisch tiefenpsychologisch fundierte Vorgehensweise. Die tiefenpsychologisch fundierte Psychotherapie geht davon aus, dass aktuelle Belastungen und wiederkehrende Schwierigkeiten oft mit unbewussten inneren Konflikten und früheren Erfahrungen zusammenhängen. Gemeinsam mit dem Therapeuten werden diese Zusammenhänge im Gespräch verständlich gemacht, um neue Wege im Umgang mit sich selbst und anderen zu entwickeln. Neben der tiefenpsychologisch fundierten Psychotherapie biete ich vor allem psychoonkologische Begleitung und Trauergespräche für Hinterbliebene an."
-  },
-  {
     id: "ulrich-passow",
     name: "Ulrich Passow",
     role: "Praxis für systemische Therapie und Hypnotherapie",
     category: "Psychotherapie",
     image: "https://static.wixstatic.com/media/6f6aae_ea1fa58b7d80438497f59ced07dad5e4~mv2.png/v1/fill/w_344,h_344,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Ulrich%20Passow.png",
-    roomImage: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&h=400&fit=crop",
+    roomImage: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/7rbr0pki_Passow%20Raum.jpeg",
     description: "Private Psychotherapie, insbesondere Einzel-, Paar- und Familientherapie nach systemischem und hypnosystemischem Ansatz.",
     website: "www.psychotherapie-passow.de"
+  },
+  // COACHING
+  {
+    id: "elisabeth-berchtold",
+    name: "Elisabeth Berchtold",
+    role: "Systemisches Business Coaching, Logotherapie & Existenzanalyse",
+    category: "Coaching",
+    image: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/wy5cqxth_elisabeth.jpeg",
+    imageStyle: { objectPosition: "60% 15%" },
+    roomImage: null,
+    description: "Als Diplompädagogin (Univ.) biete ich Ihnen professionelle Beratung, um berufliche und persönliche Ziele zu erreichen. Ob Sie sich neu orientieren, Ihre Karriere voranbringen oder Krisen bewältigen möchten – ich begleite Sie auf Ihrem Weg mit individuellem Coaching und einem praxistauglichen Entscheidungsmanagement. Meine Coaching-Arbeit basiert dabei auf langjähriger Erfahrung in der systemischen Beratung und einer fundierten Ausbildung in Logotherapie und Existenzanalyse nach V.E. Frankl. Das Herzstück meiner Arbeit ist die Sinnorientierung, die dem Coaching die tiefere Dimension verleiht: Es geht um Veränderungen, die das Handeln langfristig prägen, motivieren und tragen."
   },
   {
     id: "carina-roy",
@@ -104,16 +116,7 @@ const expertsData = [
     website: "www.carina-roy.de",
     phone: "+49 151 54809698"
   },
-  {
-    id: "elisabeth-berchtold",
-    name: "Elisabeth Berchtold",
-    role: "Systemisches Business Coaching, Logotherapie & Existenzanalyse",
-    category: "Coaching",
-    image: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/wy5cqxth_elisabeth.jpeg",
-    imageStyle: { objectPosition: "60% 15%" },
-    roomImage: null,
-    description: "Als Diplompädagogin (Univ.) biete ich Ihnen professionelle Beratung, um berufliche und persönliche Ziele zu erreichen. Ob Sie sich neu orientieren, Ihre Karriere voranbringen oder Krisen bewältigen möchten – ich begleite Sie auf Ihrem Weg mit individuellem Coaching und einem praxistauglichen Entscheidungsmanagement. Meine Coaching-Arbeit basiert dabei auf langjähriger Erfahrung in der systemischen Beratung und einer fundierten Ausbildung in Logotherapie und Existenzanalyse nach V.E. Frankl. Das Herzstück meiner Arbeit ist die Sinnorientierung, die dem Coaching die tiefere Dimension verleiht: Es geht um Veränderungen, die das Handeln langfristig prägen, motivieren und tragen."
-  },
+  // PHYSIOTHERAPIE UND OSTEOPATHIE
   {
     id: "michaela-stabenow",
     name: "Michaela Stabenow",
@@ -398,9 +401,20 @@ export default function ExpertsPage() {
 
                 {/* Experts Grid */}
                 <div className={`grid gap-12 ${categoryExperts.length === 1 ? 'grid-cols-1 max-w-sm mx-auto' : 'grid-cols-1 md:grid-cols-2'}`}>
-                  {categoryExperts.map((expert) => (
-                    <ExpertCard key={expert.id} expert={expert} />
-                  ))}
+                  {categoryExperts.map((expert, index) => {
+                    // Wenn ungerade Anzahl und letztes Element, zentrieren
+                    const isLastAndOdd = categoryExperts.length % 2 === 1 && index === categoryExperts.length - 1;
+                    return (
+                      <div 
+                        key={expert.id} 
+                        className={isLastAndOdd ? 'md:col-span-2 flex justify-center' : ''}
+                      >
+                        <div className={isLastAndOdd ? 'w-full max-w-sm' : 'w-full'}>
+                          <ExpertCard expert={expert} />
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             );

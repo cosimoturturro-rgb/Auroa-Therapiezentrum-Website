@@ -33,16 +33,28 @@ Der Benutzer möchte die Internetseite https://www.aurora-therapiezentrum.de/kop
 ### 2026-01-23 - Experten-Seite
 - ✅ Experten-Seite im Original Aurora Wix-Design
 - ✅ Hero-Sektion mit Original Aurora Header-Bild
-- ✅ 4 Experten-Karten mit aufklappbarer Funktion (Klick = Raumbild + Beschreibung):
-  - Daniel Karg (Psychotherapie) - Original Wix-Bild
-  - Ulrich Passow (Psychotherapie) - Original Wix-Bild
-  - Carina Roy (Coaching) - Original Wix-Bild
-  - Michaela Stabenow (Physiotherapie/Osteopathie) - Original Wix-Bild
+- ✅ **11 Experten-Karten** mit aufklappbarer Funktion (Klick auf blauen Button = Raumbild + Beschreibung):
+  **Psychotherapie (9 Experten)** - alphabetisch nach Nachnamen sortiert:
+  - Markus Bauer - Kinder- und Jugendlichenpsychotherapeut
+  - Sarah Bauer - Kinder- und Jugendlichenpsychotherapeutin
+  - Alisha Berchtold - Systemische Einzel-, Paar- und Familientherapie
+  - Elena Berkus - Kinder- und Jugendlichenpsychotherapeutin
+  - Veronika Hartl - Psychologin, Psychotherapeutin in Ausbildung
+  - Daniel Karg - Kinder- und Jugendlichenpsychotherapeut
+  - Karin Kraus - Praxis für Traumatherapie
+  - Juan Jose Lopez Lamas - Systemische Einzel-, Paar- und Familientherapie
+  - Ulrich Passow - Systemische Therapie und Hypnotherapie (zentriert als letzter)
+  **Coaching (2 Experten)**:
+  - Elisabeth Berchtold - Business Coaching, Logotherapie & Existenzanalyse
+  - Carina Roy - Business Coach
+  **Physiotherapie und Osteopathie (1 Experte)**:
+  - Michaela Stabenow - Heilpraktikerin Physiotherapie und Osteopathie
 - ✅ Sanfte Framer Motion Aufklapp-Animationen
 - ✅ Kontakt-Links (E-Mail, Website, Telefon) im aufgeklappten Zustand
 - ✅ Kategorien-Überschriften (Psychotherapie, Coaching, Physiotherapie und Osteopathie)
 - ✅ Kontakt-Sektion am Ende
 - ✅ Design passt zum restlichen Aurora Wix-Website
+- ✅ **Einzelne Experten in ungeraden Reihen werden zentriert** (z.B. Ulrich Passow)
 
 ### 2026-01-23 - Raumvermietungs-System (NEU)
 - ✅ Neue Seite /raumvermietung für Gruppentherapieraum-Vermietung
@@ -81,6 +93,9 @@ Der Benutzer möchte die Internetseite https://www.aurora-therapiezentrum.de/kop
 - [ ] Mehrsprachigkeit
 
 ## Next Tasks
-1. Echte Bilder der Therapeuten einbinden
-2. Echte Fotos der Praxisräume hochladen
-3. Weitere Experten hinzufügen (falls vorhanden)
+1. ~~Echte Bilder der Therapeuten einbinden~~ ✅ Erledigt
+2. ~~Echte Fotos der Praxisräume hochladen~~ ✅ Größtenteils erledigt
+3. ✅ Alphabetische Sortierung nach Nachnamen
+4. ✅ Einzelne Experten zentrieren (wenn letzte Reihe ungerade)
+5. 🟡 Raumbild für Karin Kraus noch ausstehend
+6. 🟡 "Save to Github" für Selbst-Hosting vorbereiten
