@@ -44,6 +44,16 @@ const expertsData = [
     description: "Der Weg des Heranwachsens ist voller Entwicklungsschritte, Entdeckungen, aber auch Herausforderungen. Manchmal fühlen sich diese Phasen überwältigend an - für das Kind selbst und für die ganze Familie. Als analytisch und tiefenpsychologisch fundiert ausgebildete Kinder- und Jugendlichenpsychotherapeutin liegt mein Fokus nicht nur darauf, Symptome zu lindern, sondern auch die tieferliegenden Ursachen zu verstehen. Wir schauen gemeinsam auf die frühen Erfahrungen, die aktuelle Lebenssituation und die unbewussten Muster, die das tägliche Handeln prägen."
   },
   {
+    id: "karin-kraus",
+    name: "Karin Kraus",
+    role: "Praxis für Traumatherapie",
+    category: "Psychotherapie",
+    image: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/tog6kz6y_Karin%20Kraus%20Bild.jpg",
+    imageStyle: { objectPosition: "70% center" },
+    roomImage: null,
+    description: "Belastende Erlebnisse und traumatische Erfahrungen können tiefe Narben in der Seele des Menschen hinterlassen und das (Er)Leben und die eigene Entwicklung beeinflussen. In meiner Privatpraxis für Traumatherapie biete ich mit modernen therapeutischen Methoden wie z. B. EMDR einen geschützten Raum, das Erlebte im individuellen Prozess zu verarbeiten. Empathisch begleite ich Menschen in ihrer persönlichen Geschichte und nach ihren Bedürfnissen. Gemeinsam erarbeiten wir Wege zu innerer und äußerer Stärke in einem selbstbestimmten Leben."
+  },
+  {
     id: "ulrich-passow",
     name: "Ulrich Passow",
     role: "Praxis für systemische Therapie und Hypnotherapie",
@@ -221,14 +231,16 @@ const ExpertCard = ({ expert }) => {
             transition={{ duration: 0.4, ease: "easeInOut" }}
             className="overflow-hidden w-full"
           >
-            {/* Room Image */}
-            <div className="my-4 rounded-lg overflow-hidden shadow-md mx-4">
-              <img
-                src={expert.roomImage}
-                alt={`Praxisraum von ${expert.name}`}
-                className="w-full h-auto object-contain"
-              />
-            </div>
+            {/* Room Image - only show if available */}
+            {expert.roomImage && (
+              <div className="my-4 rounded-lg overflow-hidden shadow-md mx-4">
+                <img
+                  src={expert.roomImage}
+                  alt={`Praxisraum von ${expert.name}`}
+                  className="w-full h-auto object-contain"
+                />
+              </div>
+            )}
 
             {/* Description */}
             <p className="text-gray-600 text-sm leading-relaxed mb-4 px-4 text-left">
