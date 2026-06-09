@@ -260,9 +260,9 @@ const ExpertCard = ({ expert }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
     >
-      {/* Profile Image - Circular like original - 20% larger */}
-      <div className="relative mb-5">
-        <div className="w-[240px] h-[240px] rounded-full overflow-hidden border-4 border-gray-100 shadow-md bg-white">
+      {/* Profile Image - Circular like original - 30% larger */}
+      <div className="relative mb-6">
+        <div className="w-[280px] h-[280px] rounded-full overflow-hidden border-4 border-gray-100 shadow-md bg-white">
           <img
             src={expert.image}
             alt={expert.name}
@@ -274,31 +274,31 @@ const ExpertCard = ({ expert }) => {
         {/* Expand Button - Only this triggers expand */}
         <button
           onClick={() => setIsExpanded(!isExpanded)}
-          className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-[#0e4a6a] rounded-full p-2 shadow-md hover:bg-[#1a6b94] transition-colors cursor-pointer"
+          className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-[#0e4a6a] rounded-full p-2.5 shadow-md hover:bg-[#1a6b94] transition-colors cursor-pointer"
           data-testid={`expand-btn-${expert.id}`}
         >
           <motion.div
             animate={{ rotate: isExpanded ? 180 : 0 }}
             transition={{ duration: 0.3 }}
           >
-            <ChevronDown className="w-5 h-5 text-white" />
+            <ChevronDown className="w-6 h-6 text-white" />
           </motion.div>
         </button>
       </div>
 
-      {/* Role - 20% larger text */}
-      <p className="text-gray-600 text-base mb-1 px-4 leading-relaxed">
+      {/* Role - 30% larger text */}
+      <p className="text-gray-600 text-lg mb-1 px-4 leading-relaxed">
         {expert.role}
       </p>
 
-      {/* Name - 20% larger */}
-      <h3 className="text-2xl font-semibold text-gray-800 mb-3">
+      {/* Name - 30% larger */}
+      <h3 className="text-3xl font-semibold text-gray-800 mb-3">
         {expert.name}
       </h3>
 
-      {/* Hint to click - 20% larger */}
+      {/* Hint to click - 30% larger */}
       {!isExpanded && (
-        <p className="text-[#14b8a6] text-base font-medium">
+        <p className="text-[#14b8a6] text-lg font-medium">
           Klicken für mehr Infos
         </p>
       )}
@@ -324,8 +324,8 @@ const ExpertCard = ({ expert }) => {
               </div>
             )}
 
-            {/* Description - 20% larger */}
-            <div className="text-gray-600 text-base leading-relaxed mb-4 px-4 text-left">
+            {/* Description - 30% larger */}
+            <div className="text-gray-600 text-lg leading-relaxed mb-4 px-4 text-left">
               {expert.description.split('\n\n').map((paragraph, idx) => (
                 <p key={idx} className={idx > 0 ? 'mt-3' : ''}>
                   {paragraph}
@@ -333,16 +333,16 @@ const ExpertCard = ({ expert }) => {
               ))}
             </div>
 
-            {/* Contact Links - 20% larger */}
+            {/* Contact Links - 30% larger */}
             <div className="flex flex-wrap justify-center gap-3 px-4 pb-2">
               {expert.email && (
                 <a
                   href={`mailto:${expert.email}`}
                   onClick={(e) => e.stopPropagation()}
-                  className="inline-flex items-center gap-2 px-4 py-2 text-[#0e4a6a] text-base hover:underline"
+                  className="inline-flex items-center gap-2 px-4 py-2 text-[#0e4a6a] text-lg hover:underline"
                   data-testid={`email-link-${expert.id}`}
                 >
-                  <Mail className="w-5 h-5" />
+                  <Mail className="w-6 h-6" />
                   {expert.email}
                 </a>
               )}
@@ -352,10 +352,10 @@ const ExpertCard = ({ expert }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
-                  className="inline-flex items-center gap-2 px-4 py-2 text-[#0e4a6a] text-base hover:underline"
+                  className="inline-flex items-center gap-2 px-4 py-2 text-[#0e4a6a] text-lg hover:underline"
                   data-testid={`website-link-${expert.id}`}
                 >
-                  <Globe className="w-5 h-5" />
+                  <Globe className="w-6 h-6" />
                   {expert.website}
                 </a>
               )}
@@ -363,10 +363,10 @@ const ExpertCard = ({ expert }) => {
                 <a
                   href={`tel:${expert.phone}`}
                   onClick={(e) => e.stopPropagation()}
-                  className="inline-flex items-center gap-2 px-4 py-2 text-[#0e4a6a] text-base hover:underline"
+                  className="inline-flex items-center gap-2 px-4 py-2 text-[#0e4a6a] text-lg hover:underline"
                   data-testid={`phone-link-${expert.id}`}
                 >
-                  <Phone className="w-5 h-5" />
+                  <Phone className="w-6 h-6" />
                   {expert.phone}
                 </a>
               )}
@@ -376,11 +376,11 @@ const ExpertCard = ({ expert }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
-                  className="inline-flex items-center justify-center gap-2 mt-4 px-8 py-3 bg-[#107ACA] text-white font-medium rounded-lg hover:bg-[#0d6ab8] transition-all shadow-md hover:shadow-lg"
+                  className="inline-flex items-center justify-center gap-2 mt-4 px-10 py-4 bg-[#107ACA] text-white font-medium rounded-lg hover:bg-[#0d6ab8] transition-all shadow-md hover:shadow-lg"
                   data-testid={`doctolib-link-${expert.id}`}
                 >
-                  <Calendar className="w-5 h-5" />
-                  <span className="text-lg">Terminbuchung bei Doctolib</span>
+                  <Calendar className="w-6 h-6" />
+                  <span className="text-xl">Terminbuchung bei Doctolib</span>
                 </a>
               )}
             </div>
@@ -407,17 +407,17 @@ export default function ExpertsPage() {
             if (categoryExperts.length === 0) return null;
 
             return (
-              <div key={category} className="mb-20">
-                {/* Category Header - 20% larger */}
+              <div key={category} className="mb-24">
+                {/* Category Header - 30% larger */}
                 <h2 
-                  className="text-3xl font-semibold text-gray-800 text-center mb-14"
+                  className="text-4xl font-semibold text-gray-800 text-center mb-16"
                   data-testid={`category-${category.toLowerCase().replace(/\s+/g, '-')}`}
                 >
                   {category}
                 </h2>
 
                 {/* Experts Grid - more spacing */}
-                <div className={`grid gap-16 ${categoryExperts.length === 1 ? 'grid-cols-1 max-w-md mx-auto' : 'grid-cols-1 md:grid-cols-2'}`}>
+                <div className={`grid gap-20 ${categoryExperts.length === 1 ? 'grid-cols-1 max-w-lg mx-auto' : 'grid-cols-1 md:grid-cols-2'}`}>
                   {categoryExperts.map((expert, index) => {
                     // Wenn ungerade Anzahl und letztes Element, zentrieren
                     const isLastAndOdd = categoryExperts.length % 2 === 1 && index === categoryExperts.length - 1;
