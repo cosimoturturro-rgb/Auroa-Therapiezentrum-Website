@@ -205,7 +205,7 @@ const ExpertCard = ({ expert }) => {
               <img
                 src={expert.roomImage}
                 alt={`Praxisraum von ${expert.name}`}
-                className="w-full h-48 object-cover"
+                className="w-full h-auto object-contain"
               />
             </div>
 
