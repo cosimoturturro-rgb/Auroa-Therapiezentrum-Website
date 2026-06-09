@@ -128,6 +128,22 @@ const expertsData = [
     website: "www.osteo-stabenow.de",
     phone: "+49 163 7159861"
   },
+  // TRADITIONELLE CHINESISCHE MEDIZIN UND AKUPUNKTUR
+  {
+    id: "lu-heiden",
+    name: "Dr. med. Lu Heiden",
+    role: "Fachärztin für Viszeralchirurgie, TCM und Akupunktur",
+    category: "Traditionelle Chinesische Medizin und Akupunktur",
+    image: "https://static.prod-images.emergentagent.com/jobs/f7f34fb4-9cbd-4a54-b020-b946c43fded6/images/f027f781d06aa14f94956d72c474e34ac689fcdd76f62f289176122a45d1d5d9.png",
+    roomImage: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/c0c8fss8_Raum%20Lu%20Heiden.png",
+    description: `Ich bin Fachärztin für Viszeralchirurgie mit der Zusatzbezeichnung Spezielle Viszeralchirurgie. Nach meinem Medizinstudium an der Ludwig-Maximilians-Universität München war ich von 2011 bis 2022 am Universitätsklinikum Augsburg in der Klinik für Allgemein-, Viszeral- und Transplantationsmedizin tätig.
+
+Neben meiner chirurgischen Arbeit liegt mein zweiter Schwerpunkt in der Traditionellen Chinesischen Medizin und Akupunktur. Am Universitätsklinikum Augsburg habe ich die Akupunktur-Ambulanz der Klinik gegründet und bis 2022 geleitet.
+
+In meiner Praxis begleite ich insbesondere Patientinnen und Patienten mit komplexeren medizinischen Vorgeschichten, bösartigen Vorerkrankungen sowie Polyneuropathie nach Chemotherapie. Seit 2023 bin ich zudem als Oberärztin für Schilddrüsen- und Nebenschilddrüsenchirurgie an der Stadtklinik im Diako tätig.
+
+Mein Ziel ist es, schulmedizinische Erfahrung und Akupunktur sinnvoll miteinander zu verbinden und Beschwerden ganzheitlich zu betrachten.`
+  },
   // TIERGESTÜTZTE THERAPIE
   {
     id: "sumi",
@@ -152,7 +168,7 @@ Bis dahin wachse ich weiter, lerne fleißig und freue mich über alle Begegnunge
   }
 ];
 
-const categories = ["Psychotherapie", "Coaching", "Physiotherapie und Osteopathie", "Tiergestützte Therapie"];
+const categories = ["Psychotherapie", "Coaching", "Physiotherapie und Osteopathie", "Traditionelle Chinesische Medizin und Akupunktur", "Tiergestützte Therapie"];
 
 // Navigation Component - Matching Original Aurora Wix Style
 const Navigation = () => {
