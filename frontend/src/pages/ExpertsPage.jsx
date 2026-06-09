@@ -50,7 +50,7 @@ const expertsData = [
 
 const categories = ["Psychotherapie", "Coaching", "Physiotherapie und Osteopathie"];
 
-// Navigation Component - Matching Aurora Wix Style
+// Navigation Component - Matching Original Aurora Wix Style
 const Navigation = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -63,18 +63,18 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0e3a5a]/95 backdrop-blur-sm">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#1a3a4a]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-end h-14">
+        <div className="flex items-center justify-end h-12">
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className={`text-sm tracking-wide transition-colors duration-200 ${
+                className={`text-sm transition-colors duration-200 ${
                   link.active 
-                    ? "text-[#14b8a6]" 
+                    ? "text-[#d4a574]" 
                     : "text-gray-300 hover:text-white"
                 }`}
                 data-testid={`nav-${link.name.toLowerCase().replace(/\s+/g, '-')}`}
@@ -110,7 +110,7 @@ const Navigation = () => {
                     href={link.href}
                     className={`px-4 py-2 text-sm ${
                       link.active 
-                        ? "text-[#14b8a6]" 
+                        ? "text-[#d4a574]" 
                         : "text-gray-300 hover:text-white"
                     }`}
                   >
@@ -254,7 +254,7 @@ export default function ExpertsPage() {
       <Navigation />
 
       {/* Hero Section - Like Original */}
-      <section className="relative pt-14">
+      <section className="relative pt-12">
         <div 
           className="h-[420px] bg-cover bg-center"
           style={{

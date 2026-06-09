@@ -595,40 +595,62 @@ export default function RoomRentalPage() {
   return (
     <AuthContext.Provider value={{ user, setUser }}>
       <div className="min-h-screen bg-white">
-        {/* Navigation */}
-        <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0e3a5a]/95 backdrop-blur-sm">
+        {/* Navigation - Like Original Aurora */}
+        <nav className="fixed top-0 left-0 right-0 z-50 bg-[#1a3a4a]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between h-14">
+            <div className="flex items-center justify-end h-12">
               <div className="hidden md:flex items-center gap-8">
-                <a href="https://www.aurora-therapiezentrum.de" className="text-sm text-gray-300 hover:text-white">Aurora</a>
-                <a href="https://www.aurora-therapiezentrum.de/copy-of-about-us-1" className="text-sm text-gray-300 hover:text-white">Angebot</a>
-                <a href="/" className="text-sm text-gray-300 hover:text-white">Experten</a>
-                <a href="/raumvermietung" className="text-sm text-[#14b8a6]">Raumvermietung</a>
-                <a href="https://www.aurora-therapiezentrum.de/contact" className="text-sm text-gray-300 hover:text-white">Kontakt und Anreise</a>
+                <a href="https://www.aurora-therapiezentrum.de" className="text-sm text-gray-300 hover:text-white transition-colors">Aurora</a>
+                <a href="https://www.aurora-therapiezentrum.de/copy-of-about-us-1" className="text-sm text-gray-300 hover:text-white transition-colors">Angebot</a>
+                <a href="/" className="text-sm text-gray-300 hover:text-white transition-colors">Experten</a>
+                <a href="/raumvermietung" className="text-sm text-[#d4a574]">Raumvermietung</a>
+                <a href="https://www.aurora-therapiezentrum.de/contact" className="text-sm text-gray-300 hover:text-white transition-colors">Kontakt und Anreise</a>
               </div>
               
-              <div className="flex items-center gap-4">
+              {/* Mobile + Login */}
+              <div className="flex items-center gap-4 md:hidden">
+                {user ? (
+                  <button
+                    onClick={handleLogout}
+                    className="p-2 text-gray-300 hover:text-white"
+                    data-testid="logout-btn"
+                  >
+                    <LogOut className="w-5 h-5" />
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => setShowAuth(true)}
+                    className="text-sm text-[#d4a574]"
+                    data-testid="login-btn"
+                  >
+                    Anmelden
+                  </button>
+                )}
+              </div>
+              
+              {/* Desktop Login */}
+              <div className="hidden md:flex items-center ml-8">
                 {user ? (
                   <div className="flex items-center gap-3">
-                    <span className="text-sm text-white hidden sm:block">
-                      {user.first_name} {user.last_name}
-                      {!user.is_approved && <span className="text-yellow-400 ml-2">(Nicht freigeschaltet)</span>}
+                    <span className="text-sm text-gray-300">
+                      {user.first_name}
+                      {!user.is_approved && <span className="text-yellow-400 ml-1">(Nicht freigeschaltet)</span>}
                     </span>
                     {user.is_admin && (
-                      <a href="/admin" className="text-sm text-[#14b8a6] hover:underline">Admin</a>
+                      <a href="/admin" className="text-sm text-[#d4a574]">Admin</a>
                     )}
                     <button
                       onClick={handleLogout}
-                      className="p-2 text-gray-300 hover:text-white"
+                      className="p-1 text-gray-300 hover:text-white"
                       data-testid="logout-btn"
                     >
-                      <LogOut className="w-5 h-5" />
+                      <LogOut className="w-4 h-4" />
                     </button>
                   </div>
                 ) : (
                   <button
                     onClick={() => setShowAuth(true)}
-                    className="px-4 py-1.5 bg-[#14b8a6] text-white text-sm rounded-full hover:bg-[#2dd4bf] transition-colors"
+                    className="text-sm text-[#d4a574] hover:text-[#e0b88a] transition-colors"
                     data-testid="login-btn"
                   >
                     Anmelden
@@ -640,7 +662,7 @@ export default function RoomRentalPage() {
         </nav>
 
         {/* Hero Section - Single Banner Image */}
-        <section className="pt-14 relative">
+        <section className="pt-12 relative">
           <div className="h-[280px] relative overflow-hidden">
             <img
               src={heroBannerImage}
