@@ -5,6 +5,15 @@ import { Mail, Phone, Globe, ChevronDown, Menu, X } from "lucide-react";
 // Expert data from Aurora Therapiezentrum - using original images from Wix
 const expertsData = [
   {
+    id: "elena-berkus",
+    name: "Elena Berkus",
+    role: "Tiefenpsychologisch fundierte Kinder- und Jugendlichenpsychotherapeutin",
+    category: "Psychotherapie",
+    image: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/ul805lna_Berkus%20Bild.jpeg",
+    roomImage: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/v5soysdv_Berkus%20Raum.jpeg",
+    description: "In meiner Praxis biete ich tiefenpsychologisch fundierte Psychotherapie für Kinder und Jugendliche in einem geschützten und wertschätzenden Rahmen an. Dabei verbinde ich fachliche Professionalität mit einer empathischen, zugewandten Haltung und einem sicheren therapeutischen Beziehungsangebot. Durch meine langjährige Tätigkeit in der Begleitung und Zusammenarbeit mit Pflegefamilien verfüge ich über einen umfangreichen Erfahrungsschatz im Umgang mit komplexen Entwicklungsbedingungen, Bindungsstörungen, Traumafolgen und familiären Belastungssituationen. Mein therapeutischer Ansatz orientiert sich an den individuellen Bedürfnissen des Kindes oder Jugendlichen und unterstützt emotionale Stabilisierung, Entwicklungsschritte sowie die Stärkung persönlicher Ressourcen und Beziehungskompetenzen."
+  },
+  {
     id: "daniel-karg",
     name: "Daniel Karg",
     role: "Tiefenpsychologisch fundierter Kinder- und Jugendlichenpsychotherapeut",
