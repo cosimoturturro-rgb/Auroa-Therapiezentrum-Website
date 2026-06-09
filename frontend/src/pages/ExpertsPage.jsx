@@ -89,10 +89,20 @@ const expertsData = [
     role: "Business Coach",
     category: "Coaching",
     image: "https://static.wixstatic.com/media/6f6aae_9344c1f8086d4cd88e53932e7ddf4d3c~mv2.png/v1/fill/w_344,h_344,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Carina_Roy.png",
-    roomImage: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop",
+    roomImage: null,
     description: "Ich begleite Menschen und Teams in ihrem individuellen Entwicklungsprozess. Mein Coaching bietet eine fundierte Analyse, aktiviert Ressourcen und unterstützt dabei, Strategien für nachhaltige Veränderungen zu entwickeln. Mit wirtschaftspsychologischen Methoden hinterfragen wir gewohnte Denkmuster, stärken die Selbstreflexion und eröffnen neue Perspektiven.",
     website: "www.carina-roy.de",
     phone: "+49 151 54809698"
+  },
+  {
+    id: "elisabeth-berchtold",
+    name: "Elisabeth Berchtold",
+    role: "Diplompädagogin (Univ.) - Coaching und Beratung",
+    category: "Coaching",
+    image: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/wy5cqxth_elisabeth.jpeg",
+    imageStyle: { objectPosition: "60% 15%" },
+    roomImage: null,
+    description: "Als Diplompädagogin (Univ.) biete ich Ihnen professionelle Beratung, um berufliche und persönliche Ziele zu erreichen. Ob Sie sich neu orientieren, Ihre Karriere voranbringen oder Krisen bewältigen möchten – ich begleite Sie auf Ihrem Weg mit individuellem Coaching und einem praxistauglichen Entscheidungsmanagement. Meine Coaching-Arbeit basiert dabei auf langjähriger Erfahrung in der systemischen Beratung und einer fundierten Ausbildung in Logotherapie und Existenzanalyse nach V.E. Frankl. Das Herzstück meiner Arbeit ist die Sinnorientierung, die dem Coaching die tiefere Dimension verleiht: Es geht um Veränderungen, die das Handeln langfristig prägen, motivieren und tragen."
   },
   {
     id: "michaela-stabenow",
