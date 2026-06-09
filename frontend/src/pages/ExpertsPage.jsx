@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Phone, Globe, ChevronDown, Menu, X } from "lucide-react";
+import { Mail, Phone, Globe, ChevronDown, Menu, X, Calendar } from "lucide-react";
 
 // Expert data from Aurora Therapiezentrum - alphabetisch nach Nachnamen sortiert
 const expertsData = [
@@ -376,10 +376,11 @@ const ExpertCard = ({ expert }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
-                  className="inline-flex items-center justify-center mt-4 px-6 py-3 bg-[#107ACA] text-white font-medium rounded hover:bg-[#0d6ab8] transition-colors"
+                  className="inline-flex items-center justify-center gap-2 mt-4 px-8 py-3 bg-[#107ACA] text-white font-medium rounded-lg hover:bg-[#0d6ab8] transition-all shadow-md hover:shadow-lg"
                   data-testid={`doctolib-link-${expert.id}`}
                 >
-                  <span className="text-lg">Doctolib</span>
+                  <Calendar className="w-5 h-5" />
+                  <span className="text-lg">Terminbuchung bei Doctolib</span>
                 </a>
               )}
             </div>
