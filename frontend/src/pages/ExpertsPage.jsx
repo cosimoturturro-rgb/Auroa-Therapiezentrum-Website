@@ -19,7 +19,7 @@ const expertsData = [
     role: "Tiefenpsychologisch fundierter Kinder- und Jugendlichenpsychotherapeut",
     category: "Psychotherapie",
     image: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/hv49vpad_Dani%20bild.jpeg",
-    imageStyle: { objectPosition: "center 10%" },
+    imageStyle: { objectPosition: "center 25%" },
     roomImage: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/0s32f5np_Dani%20raum.jpeg",
     description: "Im Kontakt mit meinen Patienten ist es mir wichtig, Kinder und Jugendliche in ihrer emotionalen Entwicklung zu verstehen und gemeinsam mit ihnen sowie ihren Bezugspersonen Raum für Entwicklung, neue Perspektiven und Lösungswege zu finden. Ich arbeite beziehungsorientiert und mentalisierungsbasiert mit einem tiefen Verständnis für unbewusste seelische Prozesse. Eine vertrauensvolle therapeutische Beziehung ist dabei die Grundlage für jeden Veränderungsprozess.",
     email: "d.karg@aurora-therapiezentrum.de"
@@ -39,6 +39,7 @@ const expertsData = [
     role: "Analytisch und tiefenpsychologisch fundierte Kinder- und Jugendlichenpsychotherapeutin",
     category: "Psychotherapie",
     image: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/d2aplacm_Sarah%20Bild.jpeg",
+    imageStyle: { objectPosition: "center 20%" },
     roomImage: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/s41ovhul_Bauer%20Raum.jpeg",
     description: "Der Weg des Heranwachsens ist voller Entwicklungsschritte, Entdeckungen, aber auch Herausforderungen. Manchmal fühlen sich diese Phasen überwältigend an - für das Kind selbst und für die ganze Familie. Als analytisch und tiefenpsychologisch fundiert ausgebildete Kinder- und Jugendlichenpsychotherapeutin liegt mein Fokus nicht nur darauf, Symptome zu lindern, sondern auch die tieferliegenden Ursachen zu verstehen. Wir schauen gemeinsam auf die frühen Erfahrungen, die aktuelle Lebenssituation und die unbewussten Muster, die das tägliche Handeln prägen."
   },
