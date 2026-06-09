@@ -703,6 +703,7 @@ export default function RoomRentalPage() {
               </div>
               <h3 className="font-semibold mb-1">Elektr. Flipchart</h3>
               <p className="text-2xl font-bold text-[#14b8a6]">+5 €<span className="text-sm font-normal text-gray-600">/Stunde</span></p>
+              <p className="text-xs text-gray-500 mt-1">Samsung Flip Pro 65" (WM65B)</p>
             </div>
             
             <div className="text-center p-6 bg-gray-50 rounded-xl">
