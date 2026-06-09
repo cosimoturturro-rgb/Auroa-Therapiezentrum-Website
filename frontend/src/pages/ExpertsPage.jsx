@@ -136,9 +136,9 @@ const expertsData = [
     category: "Tiergestützte Therapie",
     image: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/91wpal9v_Sumi2.jpeg",
     roomImage: null,
-    description: `Hallo, ich bin Sumi
+    description: `Hallo, ich bin Sumi!
 
-Ich bin Sumi, ein kleiner Therapiehund in Ausbildung. Mein Name kommt aus dem Japanischen und bedeutet „Tintenklecks" — passend, oder?
+Ich bin ein kleiner Therapiehund in Ausbildung. Mein Name kommt aus dem Japanischen und bedeutet „Tintenklecks" — passend, oder?
 
 Noch bin ich ein Welpe und lerne jeden Tag ein bisschen mehr über die Welt, über Menschen und darüber, wie ich später in der therapeutischen Arbeit unterstützen kann.
 
