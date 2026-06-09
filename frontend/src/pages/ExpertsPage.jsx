@@ -143,8 +143,7 @@ const ExpertCard = ({ expert }) => {
     <motion.div
       layout
       data-testid={`expert-card-${expert.id}`}
-      className="bg-white cursor-pointer flex flex-col items-center text-center"
-      onClick={() => setIsExpanded(!isExpanded)}
+      className="bg-white flex flex-col items-center text-center"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
@@ -159,14 +158,19 @@ const ExpertCard = ({ expert }) => {
           />
         </div>
         
-        {/* Expand Indicator */}
-        <motion.div 
-          className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-[#0e4a6a] rounded-full p-1.5 shadow-md"
-          animate={{ rotate: isExpanded ? 180 : 0 }}
-          transition={{ duration: 0.3 }}
+        {/* Expand Button - Only this triggers expand */}
+        <button
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-[#0e4a6a] rounded-full p-1.5 shadow-md hover:bg-[#1a6b94] transition-colors cursor-pointer"
+          data-testid={`expand-btn-${expert.id}`}
         >
-          <ChevronDown className="w-4 h-4 text-white" />
-        </motion.div>
+          <motion.div
+            animate={{ rotate: isExpanded ? 180 : 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <ChevronDown className="w-4 h-4 text-white" />
+          </motion.div>
+        </button>
       </div>
 
       {/* Role */}
