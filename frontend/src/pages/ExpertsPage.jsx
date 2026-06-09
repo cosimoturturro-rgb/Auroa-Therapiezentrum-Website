@@ -127,10 +127,20 @@ const expertsData = [
     description: "In meiner Privatpraxis für Physiotherapie und Osteopathie behandle ich Erwachsene, Kinder und Säuglinge ganzheitlich und individuell. Mit fundiertem Wissen als Heilpraktikerin und langjähriger Erfahrung verbinde ich klassische physiotherapeutische Ansätze mit osteopathischen Techniken, um die natürliche Balance des Körpers wiederherzustellen. Im Mittelpunkt steht stets der Mensch – mit seiner Geschichte, seinem Körper und seinem Wohlbefinden.",
     website: "www.osteo-stabenow.de",
     phone: "+49 163 7159861"
+  },
+  // TIERGESTÜTZTE THERAPIE
+  {
+    id: "sumi",
+    name: "Sumi",
+    role: "Therapiehund in Ausbildung",
+    category: "Tiergestützte Therapie",
+    image: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/91wpal9v_Sumi2.jpeg",
+    roomImage: null,
+    description: "Hallo, ich bin Sumi\n\nIch bin Sumi, ein kleiner Therapiehund in Ausbildung. Mein Name kommt aus dem Japanischen und bedeutet 'Tintenklecks' - passend, oder?\n\nNoch bin ich ein Welpe und lerne jeden Tag ein bisschen mehr über die Welt, über Menschen und darüber, wie ich später in der therapeutischen Arbeit unterstützen kann.\n\nIm Moment besteht meine wichtigste Aufgabe darin, in Ruhe anzukommen, Vertrauen aufzubauen und viele neue Eindrücke kennenzulernen. Ich übe, freundlich zu bleiben, aufmerksam zu sein und zu spüren, wann Nähe guttut - und wann Abstand wichtig ist.\n\nAb und an seht ihr mich im Rahmen meiner Ausbildung schon in der Praxis. Wenn ihr vorher fragt, dürft ihr mich bestimmt auch schon einmal streicheln und kennenlernen.\n\nSpäter möchte ich Menschen dabei begleiten, sich sicherer, ruhiger und wohler zu fühlen. Manchmal hilft schon meine Anwesenheit, ein vorsichtiges Schnuppern oder ein gemeinsamer stiller Moment.\n\nBis dahin wachse ich weiter, lerne fleißig und freue mich über alle Begegnungen, bei denen ich Schritt für Schritt mehr Erfahrung sammeln darf."
   }
 ];
 
-const categories = ["Psychotherapie", "Coaching", "Physiotherapie und Osteopathie"];
+const categories = ["Psychotherapie", "Coaching", "Physiotherapie und Osteopathie", "Tiergestützte Therapie"];
 
 // Navigation Component - Matching Original Aurora Wix Style
 const Navigation = () => {
@@ -286,9 +296,13 @@ const ExpertCard = ({ expert }) => {
             )}
 
             {/* Description */}
-            <p className="text-gray-600 text-sm leading-relaxed mb-4 px-4 text-left">
-              {expert.description}
-            </p>
+            <div className="text-gray-600 text-sm leading-relaxed mb-4 px-4 text-left">
+              {expert.description.split('\n\n').map((paragraph, idx) => (
+                <p key={idx} className={idx > 0 ? 'mt-3' : ''}>
+                  {paragraph}
+                </p>
+              ))}
+            </div>
 
             {/* Contact Links */}
             <div className="flex flex-wrap justify-center gap-3 px-4 pb-2">
