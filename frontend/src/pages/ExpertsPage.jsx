@@ -354,18 +354,7 @@ export default function ExpertsPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation removed for iframe embedding */}
-
-      {/* Hero Section - Like Original */}
-      <section className="relative">
-        <div 
-          className="h-[420px] bg-cover bg-center"
-          style={{
-            backgroundImage: "url('https://static.wixstatic.com/media/11062b_096a16ed4fae4a58b83f413906c4278df000.jpg/v1/fill/w_1904,h_420,al_c,q_85,usm_0.33_1.00_0.00,enc_avif,quality_auto/11062b_096a16ed4fae4a58b83f413906c4278df000.jpg')"
-          }}
-        >
-          <div className="absolute inset-0 bg-black/30" />
-        </div>
-      </section>
+      {/* Hero banner removed for iframe embedding */}
 
       {/* Title Section */}
       <section className="py-12 px-4 text-center max-w-4xl mx-auto">
