@@ -62,7 +62,8 @@ const expertsData = [
     imageStyle: { objectPosition: "center 25%" },
     roomImage: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/0s32f5np_Dani%20raum.jpeg",
     description: "Im Kontakt mit meinen Patienten ist es mir wichtig, Kinder und Jugendliche in ihrer emotionalen Entwicklung zu verstehen und gemeinsam mit ihnen sowie ihren Bezugspersonen Raum für Entwicklung, neue Perspektiven und Lösungswege zu finden. Ich arbeite beziehungsorientiert und mentalisierungsbasiert mit einem tiefen Verständnis für unbewusste seelische Prozesse. Eine vertrauensvolle therapeutische Beziehung ist dabei die Grundlage für jeden Veränderungsprozess.",
-    email: "d.karg@aurora-therapiezentrum.de"
+    email: "d.karg@aurora-therapiezentrum.de",
+    doctolibUrl: "https://www.doctolib.de/kinder-und-jugendlichenpsychotherapeut/augsburg/daniel-karg?utm_campaign=website-button&utm_source=daniel-karg-website-button&utm_medium=referral&utm_content=option-8&utm_term=daniel-karg"
   },
   {
     id: "karin-kraus",
@@ -259,9 +260,9 @@ const ExpertCard = ({ expert }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
     >
-      {/* Profile Image - Circular like original */}
-      <div className="relative mb-4">
-        <div className="w-[200px] h-[200px] rounded-full overflow-hidden border-4 border-gray-100 shadow-md bg-white">
+      {/* Profile Image - Circular like original - 20% larger */}
+      <div className="relative mb-5">
+        <div className="w-[240px] h-[240px] rounded-full overflow-hidden border-4 border-gray-100 shadow-md bg-white">
           <img
             src={expert.image}
             alt={expert.name}
@@ -273,31 +274,31 @@ const ExpertCard = ({ expert }) => {
         {/* Expand Button - Only this triggers expand */}
         <button
           onClick={() => setIsExpanded(!isExpanded)}
-          className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-[#0e4a6a] rounded-full p-1.5 shadow-md hover:bg-[#1a6b94] transition-colors cursor-pointer"
+          className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-[#0e4a6a] rounded-full p-2 shadow-md hover:bg-[#1a6b94] transition-colors cursor-pointer"
           data-testid={`expand-btn-${expert.id}`}
         >
           <motion.div
             animate={{ rotate: isExpanded ? 180 : 0 }}
             transition={{ duration: 0.3 }}
           >
-            <ChevronDown className="w-4 h-4 text-white" />
+            <ChevronDown className="w-5 h-5 text-white" />
           </motion.div>
         </button>
       </div>
 
-      {/* Role */}
-      <p className="text-gray-600 text-sm mb-1 px-4 leading-relaxed">
+      {/* Role - 20% larger text */}
+      <p className="text-gray-600 text-base mb-1 px-4 leading-relaxed">
         {expert.role}
       </p>
 
-      {/* Name */}
-      <h3 className="text-xl font-semibold text-gray-800 mb-3">
+      {/* Name - 20% larger */}
+      <h3 className="text-2xl font-semibold text-gray-800 mb-3">
         {expert.name}
       </h3>
 
-      {/* Hint to click */}
+      {/* Hint to click - 20% larger */}
       {!isExpanded && (
-        <p className="text-[#14b8a6] text-sm font-medium">
+        <p className="text-[#14b8a6] text-base font-medium">
           Klicken für mehr Infos
         </p>
       )}
@@ -323,8 +324,8 @@ const ExpertCard = ({ expert }) => {
               </div>
             )}
 
-            {/* Description */}
-            <div className="text-gray-600 text-sm leading-relaxed mb-4 px-4 text-left">
+            {/* Description - 20% larger */}
+            <div className="text-gray-600 text-base leading-relaxed mb-4 px-4 text-left">
               {expert.description.split('\n\n').map((paragraph, idx) => (
                 <p key={idx} className={idx > 0 ? 'mt-3' : ''}>
                   {paragraph}
@@ -332,16 +333,16 @@ const ExpertCard = ({ expert }) => {
               ))}
             </div>
 
-            {/* Contact Links */}
+            {/* Contact Links - 20% larger */}
             <div className="flex flex-wrap justify-center gap-3 px-4 pb-2">
               {expert.email && (
                 <a
                   href={`mailto:${expert.email}`}
                   onClick={(e) => e.stopPropagation()}
-                  className="inline-flex items-center gap-2 px-4 py-2 text-[#0e4a6a] text-sm hover:underline"
+                  className="inline-flex items-center gap-2 px-4 py-2 text-[#0e4a6a] text-base hover:underline"
                   data-testid={`email-link-${expert.id}`}
                 >
-                  <Mail className="w-4 h-4" />
+                  <Mail className="w-5 h-5" />
                   {expert.email}
                 </a>
               )}
@@ -351,10 +352,10 @@ const ExpertCard = ({ expert }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
-                  className="inline-flex items-center gap-2 px-4 py-2 text-[#0e4a6a] text-sm hover:underline"
+                  className="inline-flex items-center gap-2 px-4 py-2 text-[#0e4a6a] text-base hover:underline"
                   data-testid={`website-link-${expert.id}`}
                 >
-                  <Globe className="w-4 h-4" />
+                  <Globe className="w-5 h-5" />
                   {expert.website}
                 </a>
               )}
@@ -362,11 +363,23 @@ const ExpertCard = ({ expert }) => {
                 <a
                   href={`tel:${expert.phone}`}
                   onClick={(e) => e.stopPropagation()}
-                  className="inline-flex items-center gap-2 px-4 py-2 text-[#0e4a6a] text-sm hover:underline"
+                  className="inline-flex items-center gap-2 px-4 py-2 text-[#0e4a6a] text-base hover:underline"
                   data-testid={`phone-link-${expert.id}`}
                 >
-                  <Phone className="w-4 h-4" />
+                  <Phone className="w-5 h-5" />
                   {expert.phone}
+                </a>
+              )}
+              {expert.doctolibUrl && (
+                <a
+                  href={expert.doctolibUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="inline-flex items-center justify-center mt-4 px-6 py-3 bg-[#107ACA] text-white font-medium rounded hover:bg-[#0d6ab8] transition-colors"
+                  data-testid={`doctolib-link-${expert.id}`}
+                >
+                  <span className="text-lg">Doctolib</span>
                 </a>
               )}
             </div>
@@ -383,54 +396,27 @@ export default function ExpertsPage() {
     <div className="min-h-screen bg-white">
       {/* Navigation removed for iframe embedding */}
       {/* Hero banner removed for iframe embedding */}
-
-      {/* Title Section */}
-      <section className="py-12 px-4 text-center max-w-4xl mx-auto">
-        <h3 className="text-lg text-gray-600 mb-2">
-          Das Angebot der unabhängig arbeitenden Expertinnen und Experten
-        </h3>
-        <p className="text-[#14b8a6] font-medium tracking-wide mb-8" data-testid="hero-subtitle">
-          vielfältig. erfahren. engagiert.
-        </p>
-        
-        <p className="text-gray-600 leading-relaxed mb-6">
-          Im Aurora Therapie- und Gesundheitszentrum finden Sie erfahrene Therapeutinnen und Therapeuten, 
-          Coaches, Heilpraktikerinnen und Heilpraktiker, die voneinander unabhängig und selbstständig tätig sind – 
-          mit unterschiedlichen Schwerpunkten, fundierter Ausbildung und einem gemeinsamen Ziel: 
-          Menschen individuell auf ihrem Weg zu mehr Gesundheit und innerer Balance zu begleiten.
-        </p>
-        
-        <p className="text-gray-600 leading-relaxed mb-6">
-          Jede und jeder bringt eine eigene Perspektive und besondere Kompetenzen mit. 
-          So entsteht ein vielfältiges Angebot – persönlich, professionell und ganzheitlich gedacht.
-        </p>
-
-        <p className="text-gray-500 text-sm leading-relaxed">
-          Neben den hier angezeigten praktizieren in unseren Räumlichkeiten auch weitere Expertinnen und Experten 
-          aus verschiedenen Fachbereichen auf selbstständiger Basis. Diese Kolleginnen nutzen einzelne 
-          Praxisräume im Rahmen von Untermietverträgen und arbeiten rechtlich und fachlich unabhängig voneinander.
-        </p>
-      </section>
+      {/* Intro text removed for iframe embedding */}
 
       {/* Experts by Category */}
-      <section className="pb-16 px-4">
+      <section className="py-8 px-4">
         <div className="max-w-5xl mx-auto">
           {categories.map((category) => {
             const categoryExperts = expertsData.filter(e => e.category === category);
             if (categoryExperts.length === 0) return null;
 
             return (
-              <div key={category} className="mb-16">
-                {/* Category Header - Simple like original */}
+              <div key={category} className="mb-20">
+                {/* Category Header - 20% larger */}
                 <h2 
-                  className="text-2xl font-semibold text-gray-800 text-center mb-12"
+                  className="text-3xl font-semibold text-gray-800 text-center mb-14"
                   data-testid={`category-${category.toLowerCase().replace(/\s+/g, '-')}`}
                 >
                   {category}
                 </h2>
 
-                {/* Experts Grid */}
-                <div className={`grid gap-12 ${categoryExperts.length === 1 ? 'grid-cols-1 max-w-sm mx-auto' : 'grid-cols-1 md:grid-cols-2'}`}>
+                {/* Experts Grid - more spacing */}
+                <div className={`grid gap-16 ${categoryExperts.length === 1 ? 'grid-cols-1 max-w-md mx-auto' : 'grid-cols-1 md:grid-cols-2'}`}>
                   {categoryExperts.map((expert, index) => {
                     // Wenn ungerade Anzahl und letztes Element, zentrieren
                     const isLastAndOdd = categoryExperts.length % 2 === 1 && index === categoryExperts.length - 1;
