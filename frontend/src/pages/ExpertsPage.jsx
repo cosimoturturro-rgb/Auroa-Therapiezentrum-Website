@@ -20,6 +20,7 @@ const expertsData = [
     category: "Psychotherapie",
     image: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/hv49vpad_Dani%20bild.jpeg",
     imagePosition: "center top",
+    imageScale: 0.85,
     roomImage: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/0s32f5np_Dani%20raum.jpeg",
     description: "Im Kontakt mit meinen Patienten ist es mir wichtig, Kinder und Jugendliche in ihrer emotionalen Entwicklung zu verstehen und gemeinsam mit ihnen sowie ihren Bezugspersonen Raum für Entwicklung, neue Perspektiven und Lösungswege zu finden. Ich arbeite beziehungsorientiert und mentalisierungsbasiert mit einem tiefen Verständnis für unbewusste seelische Prozesse. Eine vertrauensvolle therapeutische Beziehung ist dabei die Grundlage für jeden Veränderungsprozess.",
     email: "d.karg@aurora-therapiezentrum.de"
@@ -151,12 +152,16 @@ const ExpertCard = ({ expert }) => {
     >
       {/* Profile Image - Circular like original */}
       <div className="relative mb-4">
-        <div className="w-[200px] h-[200px] rounded-full overflow-hidden border-4 border-gray-100 shadow-md">
+        <div className="w-[200px] h-[200px] rounded-full overflow-hidden border-4 border-gray-100 shadow-md bg-gray-50">
           <img
             src={expert.image}
             alt={expert.name}
-            className="w-full h-full object-cover"
-            style={{ objectPosition: expert.imagePosition || 'center center' }}
+            className="w-full h-full"
+            style={{ 
+              objectFit: expert.imageScale ? 'contain' : 'cover',
+              objectPosition: expert.imagePosition || 'center center',
+              transform: expert.imageScale ? `scale(${expert.imageScale})` : 'none'
+            }}
           />
         </div>
         
