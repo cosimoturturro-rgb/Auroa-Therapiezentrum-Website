@@ -64,6 +64,16 @@ const expertsData = [
     description: "In 15 Jahren habe ich in den unterschiedlichsten Kontexten mit Menschen gearbeitet und sie in Ihren Lebenswegen unterstützt. Während und nach meinem Studium habe ich besonders mit Jugendlichen und Familien gearbeitet. Nach meiner Ausbildung zum Systemischen Therapeuten arbeite ich nun auch viel mit Paaren und Eltern. Ich glaube manchmal ist ein neutraler, aber wertschätzender Blick von Außen notwendig um Muster aufzubrechen, Veränderung zu erzeugen oder einfach eine gelassenere Haltung zu entwickeln."
   },
   {
+    id: "alisha-berchtold",
+    name: "Alisha Berchtold",
+    role: "Praxis für systemische Einzel-, Paar und Familientherapie und systemische Beratung",
+    category: "Psychotherapie",
+    image: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/f97210dy_Alisha%20Bild.jpeg",
+    imageStyle: { objectPosition: "70% 15%" },
+    roomImage: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/v5soysdv_Berkus%20Raum.jpeg",
+    description: "In Gesprächen ermögliche ich einen Rahmen, um neue Perspektiven zu eröffnen und eigene (Beziehungs-) Muster zu erkennen. Dabei ist meine Haltung und meine Arbeitsweise vom systemischen Denken geprägt. Dies bedeutet für mich Personen mit ihren Themen nicht isoliert, sondern im Zusammenhang und in Wechselwirkung im Kontext ihres sozialen System zu betrachten. Meine Arbeit ist außerdem von Wertschätzung, Offenheit und Neugier geprägt."
+  },
+  {
     id: "ulrich-passow",
     name: "Ulrich Passow",
     role: "Praxis für systemische Therapie und Hypnotherapie",
