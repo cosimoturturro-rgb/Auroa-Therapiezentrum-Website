@@ -25,6 +25,15 @@ const expertsData = [
     email: "d.karg@aurora-therapiezentrum.de"
   },
   {
+    id: "markus-bauer",
+    name: "Markus Bauer",
+    role: "Tiefenpsychologisch fundierter Kinder- und Jugendlichenpsychotherapeut",
+    category: "Psychotherapie",
+    image: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/r5mfgkon_Bauer%20Bild.jpeg",
+    roomImage: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/s41ovhul_Bauer%20Raum.jpeg",
+    description: "Als approbierter Kinder- und Jugendlichenpsychotherapeut begleite ich Säuglinge, Kinder, Jugendliche und junge Erwachsene sowie ihre Familien in herausfordernden Lebensphasen. Grundlage meiner Arbeit ist die tiefenpsychologisch-analytische Psychotherapie mit einer bindungsorientierten Haltung. Im Mittelpunkt stehen für mich nicht nur Symptome oder Schwierigkeiten, sondern der Mensch mit seiner individuellen Geschichte, seinen Beziehungen und seinem emotionalen Erleben. Viele seelische Belastungen zeigen sich im Alltag, in der Schule, im Verhalten oder in Beziehungen — häufig stehen sie im Zusammenhang mit inneren Konflikten, Unsicherheiten oder belastenden Erfahrungen. Der psychodynamische Ansatz hilft dabei, diese Zusammenhänge besser zu verstehen. Frühe Beziehungserfahrungen prägen, wie wir uns selbst erleben, wie wir anderen vertrauen und wie wir mit Nähe, Konflikten oder Belastungen umgehen. Solche inneren Beziehungsmuster können im therapeutischen Prozess sichtbar, verstehbar und veränderbar werden. Gemeinsam schauen wir darauf, wie Gefühle, Erfahrungen und Beziehungen das Erleben und Verhalten beeinflussen. Besonders wichtig ist mir dabei eine sichere und vertrauensvolle therapeutische Beziehung, denn Entwicklung entsteht dort, wo Menschen sich verstanden, angenommen und emotional gehalten fühlen."
+  },
+  {
     id: "ulrich-passow",
     name: "Ulrich Passow",
     role: "Praxis für systemische Therapie und Hypnotherapie",
