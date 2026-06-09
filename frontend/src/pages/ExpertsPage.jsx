@@ -136,7 +136,19 @@ const expertsData = [
     category: "Tiergestützte Therapie",
     image: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/91wpal9v_Sumi2.jpeg",
     roomImage: null,
-    description: "Hallo, ich bin Sumi\n\nIch bin Sumi, ein kleiner Therapiehund in Ausbildung. Mein Name kommt aus dem Japanischen und bedeutet 'Tintenklecks' - passend, oder?\n\nNoch bin ich ein Welpe und lerne jeden Tag ein bisschen mehr über die Welt, über Menschen und darüber, wie ich später in der therapeutischen Arbeit unterstützen kann.\n\nIm Moment besteht meine wichtigste Aufgabe darin, in Ruhe anzukommen, Vertrauen aufzubauen und viele neue Eindrücke kennenzulernen. Ich übe, freundlich zu bleiben, aufmerksam zu sein und zu spüren, wann Nähe guttut - und wann Abstand wichtig ist.\n\nAb und an seht ihr mich im Rahmen meiner Ausbildung schon in der Praxis. Wenn ihr vorher fragt, dürft ihr mich bestimmt auch schon einmal streicheln und kennenlernen.\n\nSpäter möchte ich Menschen dabei begleiten, sich sicherer, ruhiger und wohler zu fühlen. Manchmal hilft schon meine Anwesenheit, ein vorsichtiges Schnuppern oder ein gemeinsamer stiller Moment.\n\nBis dahin wachse ich weiter, lerne fleißig und freue mich über alle Begegnungen, bei denen ich Schritt für Schritt mehr Erfahrung sammeln darf."
+    description: `Hallo, ich bin Sumi
+
+Ich bin Sumi, ein kleiner Therapiehund in Ausbildung. Mein Name kommt aus dem Japanischen und bedeutet „Tintenklecks" — passend, oder?
+
+Noch bin ich ein Welpe und lerne jeden Tag ein bisschen mehr über die Welt, über Menschen und darüber, wie ich später in der therapeutischen Arbeit unterstützen kann.
+
+Im Moment besteht meine wichtigste Aufgabe darin, in Ruhe anzukommen, Vertrauen aufzubauen und viele neue Eindrücke kennenzulernen. Ich übe, freundlich zu bleiben, aufmerksam zu sein und zu spüren, wann Nähe guttut — und wann Abstand wichtig ist.
+
+Ab und an seht ihr mich im Rahmen meiner Ausbildung schon in der Praxis. Wenn ihr vorher fragt, dürft ihr mich bestimmt auch schon einmal streicheln und kennenlernen.
+
+Später möchte ich Menschen dabei begleiten, sich sicherer, ruhiger und wohler zu fühlen. Manchmal hilft schon meine Anwesenheit, ein vorsichtiges Schnuppern oder ein gemeinsamer stiller Moment.
+
+Bis dahin wachse ich weiter, lerne fleißig und freue mich über alle Begegnungen, bei denen ich Schritt für Schritt mehr Erfahrung sammeln darf.`
   }
 ];
 
