@@ -54,6 +54,16 @@ const expertsData = [
     description: "Belastende Erlebnisse und traumatische Erfahrungen können tiefe Narben in der Seele des Menschen hinterlassen und das (Er)Leben und die eigene Entwicklung beeinflussen. In meiner Privatpraxis für Traumatherapie biete ich mit modernen therapeutischen Methoden wie z. B. EMDR einen geschützten Raum, das Erlebte im individuellen Prozess zu verarbeiten. Empathisch begleite ich Menschen in ihrer persönlichen Geschichte und nach ihren Bedürfnissen. Gemeinsam erarbeiten wir Wege zu innerer und äußerer Stärke in einem selbstbestimmten Leben."
   },
   {
+    id: "juan-jose-lopez-lamas",
+    name: "Juan Jose Lopez Lamas",
+    role: "Praxis für systemische Einzel-, Paar und Familientherapie",
+    category: "Psychotherapie",
+    image: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/1usu5ty6_Juan%20Bild.jpeg",
+    imageStyle: { objectPosition: "60% 20%" },
+    roomImage: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/v5soysdv_Berkus%20Raum.jpeg",
+    description: "In 15 Jahren habe ich in den unterschiedlichsten Kontexten mit Menschen gearbeitet und sie in Ihren Lebenswegen unterstützt. Während und nach meinem Studium habe ich besonders mit Jugendlichen und Familien gearbeitet. Nach meiner Ausbildung zum Systemischen Therapeuten arbeite ich nun auch viel mit Paaren und Eltern. Ich glaube manchmal ist ein neutraler, aber wertschätzender Blick von Außen notwendig um Muster aufzubrechen, Veränderung zu erzeugen oder einfach eine gelassenere Haltung zu entwickeln."
+  },
+  {
     id: "ulrich-passow",
     name: "Ulrich Passow",
     role: "Praxis für systemische Therapie und Hypnotherapie",
