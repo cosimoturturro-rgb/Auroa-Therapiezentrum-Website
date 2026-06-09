@@ -641,7 +641,7 @@ export default function RoomRentalPage() {
 
         {/* Hero Section - Single Banner Image */}
         <section className="pt-14 relative">
-          <div className="h-[400px] relative overflow-hidden">
+          <div className="h-[280px] relative overflow-hidden">
             <img
               src={heroBannerImage}
               alt="Gruppentherapie"
