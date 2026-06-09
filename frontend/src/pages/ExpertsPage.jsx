@@ -18,8 +18,8 @@ const expertsData = [
     name: "Daniel Karg",
     role: "Tiefenpsychologisch fundierter Kinder- und Jugendlichenpsychotherapeut",
     category: "Psychotherapie",
-    image: "https://static.wixstatic.com/media/6f6aae_25385e9a7cf04f5ba50d08fcaa5ada10~mv2.png/v1/fill/w_344,h_344,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Daniel%20Karg.png",
-    roomImage: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&h=400&fit=crop",
+    image: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/hv49vpad_Dani%20bild.jpeg",
+    roomImage: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/0s32f5np_Dani%20raum.jpeg",
     description: "Im Kontakt mit meinen Patienten ist es mir wichtig, Kinder und Jugendliche in ihrer emotionalen Entwicklung zu verstehen und gemeinsam mit ihnen sowie ihren Bezugspersonen Raum für Entwicklung, neue Perspektiven und Lösungswege zu finden. Ich arbeite beziehungsorientiert und mentalisierungsbasiert mit einem tiefen Verständnis für unbewusste seelische Prozesse. Eine vertrauensvolle therapeutische Beziehung ist dabei die Grundlage für jeden Veränderungsprozess.",
     email: "d.karg@aurora-therapiezentrum.de"
   },
