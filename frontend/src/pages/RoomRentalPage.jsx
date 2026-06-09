@@ -595,74 +595,38 @@ export default function RoomRentalPage() {
   return (
     <AuthContext.Provider value={{ user, setUser }}>
       <div className="min-h-screen bg-white">
-        {/* Navigation - Like Original Aurora */}
-        <nav className="fixed top-0 left-0 right-0 z-50 bg-[#1a3a4a]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-end h-12">
-              <div className="hidden md:flex items-center gap-8">
-                <a href="https://www.aurora-therapiezentrum.de" className="text-sm text-gray-300 hover:text-white transition-colors">Aurora</a>
-                <a href="https://www.aurora-therapiezentrum.de/copy-of-about-us-1" className="text-sm text-gray-300 hover:text-white transition-colors">Angebot</a>
-                <a href="/" className="text-sm text-gray-300 hover:text-white transition-colors">Experten</a>
-                <a href="/raumvermietung" className="text-sm text-[#d4a574]">Raumvermietung</a>
-                <a href="https://www.aurora-therapiezentrum.de/contact" className="text-sm text-gray-300 hover:text-white transition-colors">Kontakt und Anreise</a>
-              </div>
-              
-              {/* Mobile + Login */}
-              <div className="flex items-center gap-4 md:hidden">
-                {user ? (
-                  <button
-                    onClick={handleLogout}
-                    className="p-2 text-gray-300 hover:text-white"
-                    data-testid="logout-btn"
-                  >
-                    <LogOut className="w-5 h-5" />
-                  </button>
-                ) : (
-                  <button
-                    onClick={() => setShowAuth(true)}
-                    className="text-sm text-[#d4a574]"
-                    data-testid="login-btn"
-                  >
-                    Anmelden
-                  </button>
-                )}
-              </div>
-              
-              {/* Desktop Login */}
-              <div className="hidden md:flex items-center ml-8">
-                {user ? (
-                  <div className="flex items-center gap-3">
-                    <span className="text-sm text-gray-300">
-                      {user.first_name}
-                      {!user.is_approved && <span className="text-yellow-400 ml-1">(Nicht freigeschaltet)</span>}
-                    </span>
-                    {user.is_admin && (
-                      <a href="/admin" className="text-sm text-[#d4a574]">Admin</a>
-                    )}
-                    <button
-                      onClick={handleLogout}
-                      className="p-1 text-gray-300 hover:text-white"
-                      data-testid="logout-btn"
-                    >
-                      <LogOut className="w-4 h-4" />
-                    </button>
-                  </div>
-                ) : (
-                  <button
-                    onClick={() => setShowAuth(true)}
-                    className="text-sm text-[#d4a574] hover:text-[#e0b88a] transition-colors"
-                    data-testid="login-btn"
-                  >
-                    Anmelden
-                  </button>
-                )}
-              </div>
+        {/* Login Button - Top Right */}
+        <div className="absolute top-4 right-4 z-40">
+          {user ? (
+            <div className="flex items-center gap-3 bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 shadow-md">
+              <span className="text-sm text-gray-700">
+                {user.first_name}
+                {!user.is_approved && <span className="text-yellow-600 ml-1">(Nicht freigeschaltet)</span>}
+              </span>
+              {user.is_admin && (
+                <a href="/admin" className="text-sm text-[#0e4a6a] font-medium">Admin</a>
+              )}
+              <button
+                onClick={handleLogout}
+                className="p-1 text-gray-500 hover:text-gray-700"
+                data-testid="logout-btn"
+              >
+                <LogOut className="w-4 h-4" />
+              </button>
             </div>
-          </div>
-        </nav>
+          ) : (
+            <button
+              onClick={() => setShowAuth(true)}
+              className="bg-[#0e4a6a] text-white text-sm px-5 py-2 rounded-full hover:bg-[#1a6b94] transition-colors shadow-md"
+              data-testid="login-btn"
+            >
+              Anmelden
+            </button>
+          )}
+        </div>
 
         {/* Hero Section - Single Banner Image */}
-        <section className="pt-12 relative">
+        <section className="relative">
           <div className="h-[280px] relative overflow-hidden">
             <img
               src={heroBannerImage}
