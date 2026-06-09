@@ -74,6 +74,16 @@ const expertsData = [
     description: "In Gesprächen ermögliche ich einen Rahmen, um neue Perspektiven zu eröffnen und eigene (Beziehungs-) Muster zu erkennen. Dabei ist meine Haltung und meine Arbeitsweise vom systemischen Denken geprägt. Dies bedeutet für mich Personen mit ihren Themen nicht isoliert, sondern im Zusammenhang und in Wechselwirkung im Kontext ihres sozialen System zu betrachten. Meine Arbeit ist außerdem von Wertschätzung, Offenheit und Neugier geprägt."
   },
   {
+    id: "veronika-hartl",
+    name: "Veronika Hartl",
+    role: "Psychologin (M.Sc.), Psychotherapeutin in Ausbildung",
+    category: "Psychotherapie",
+    image: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/6j2wt6jk_veronika%20bild.png",
+    imageStyle: { objectPosition: "center 15%" },
+    roomImage: null,
+    description: "Ich konzentriere mich in der Psychotherapie auf eine klassisch tiefenpsychologisch fundierte Vorgehensweise. Die tiefenpsychologisch fundierte Psychotherapie geht davon aus, dass aktuelle Belastungen und wiederkehrende Schwierigkeiten oft mit unbewussten inneren Konflikten und früheren Erfahrungen zusammenhängen. Gemeinsam mit dem Therapeuten werden diese Zusammenhänge im Gespräch verständlich gemacht, um neue Wege im Umgang mit sich selbst und anderen zu entwickeln. Neben der tiefenpsychologisch fundierten Psychotherapie biete ich vor allem psychoonkologische Begleitung und Trauergespräche für Hinterbliebene an."
+  },
+  {
     id: "ulrich-passow",
     name: "Ulrich Passow",
     role: "Praxis für systemische Therapie und Hypnotherapie",
