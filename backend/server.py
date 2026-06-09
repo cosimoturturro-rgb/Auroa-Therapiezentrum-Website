@@ -42,6 +42,15 @@ if RESEND_API_KEY:
 # Create the main app
 app = FastAPI(title="Aurora Therapiezentrum API")
 
+# Health check endpoint (required for Kubernetes deployment)
+@app.get("/health")
+async def health_check():
+    return {"status": "healthy"}
+
+@app.get("/api/health")
+async def api_health_check():
+    return {"status": "healthy"}
+
 # Create routers
 api_router = APIRouter(prefix="/api")
 auth_router = APIRouter(prefix="/api/auth")
