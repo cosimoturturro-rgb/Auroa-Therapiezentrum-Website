@@ -438,32 +438,6 @@ export default function ExpertsPage() {
         </div>
       </section>
 
-      {/* Contact Section - Like Original */}
-      <section className="py-16 px-4 bg-gray-50">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl font-semibold text-gray-800 mb-6">
-            Fragen? Schreiben Sie uns gerne.
-          </h2>
-          
-          <p className="text-gray-600 leading-relaxed mb-4">
-            Sie möchten mehr über das Aurora Therapie- und Gesundheitszentrum erfahren 
-            oder haben eine allgemeine Anfrage? Nutzen Sie einfach das Kontaktformular.
-          </p>
-          
-          <p className="text-gray-500 text-sm mb-8">
-            Bitte beachten Sie: Termine können ausschließlich direkt mit den jeweiligen 
-            Therapeut:innen, Heilpraktiker:innen oder Coaches vereinbart oder abgesagt werden.
-          </p>
-
-          <a
-            href="https://www.aurora-therapiezentrum.de/contact"
-            className="inline-block px-8 py-3 bg-[#0e4a6a] text-white font-medium rounded hover:bg-[#1a6b94] transition-colors duration-200"
-            data-testid="contact-btn"
-          >
-            Kontakt
-          </a>
-        </div>
-      </section>
     </div>
   );
 }
