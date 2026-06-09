@@ -353,11 +353,10 @@ const ExpertCard = ({ expert }) => {
 export default function ExpertsPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <Navigation />
+      {/* Navigation removed for iframe embedding */}
 
       {/* Hero Section - Like Original */}
-      <section className="relative pt-12">
+      <section className="relative">
         <div 
           className="h-[420px] bg-cover bg-center"
           style={{
