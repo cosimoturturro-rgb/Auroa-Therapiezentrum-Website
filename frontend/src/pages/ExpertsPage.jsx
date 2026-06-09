@@ -97,7 +97,7 @@ const expertsData = [
   {
     id: "elisabeth-berchtold",
     name: "Elisabeth Berchtold",
-    role: "Diplompädagogin (Univ.) - Coaching und Beratung",
+    role: "Systemisches Business Coaching, Logotherapie & Existenzanalyse",
     category: "Coaching",
     image: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/wy5cqxth_elisabeth.jpeg",
     imageStyle: { objectPosition: "60% 15%" },
