@@ -488,6 +488,7 @@ export default function RoomRentalPage() {
   const [bookingSuccess, setBookingSuccess] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [myBookings, setMyBookings] = useState([]);
+  const [lightboxImage, setLightboxImage] = useState(null);
 
   // Check for existing auth
   useEffect(() => {
@@ -667,8 +668,33 @@ export default function RoomRentalPage() {
           </div>
         </section>
 
-        {/* Room Info */}
+        {/* Room Gallery */}
         <section className="py-12 px-4 max-w-6xl mx-auto">
+          <h2 className="text-2xl font-semibold text-gray-800 text-center mb-8">Impressionen vom Gruppentherapieraum</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=300&fit=crop",
+              "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=400&h=300&fit=crop",
+              "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=400&h=300&fit=crop",
+              "https://images.unsplash.com/photo-1564069114553-7215e1ff1890?w=400&h=300&fit=crop",
+              "https://images.unsplash.com/photo-1517502884422-41eaead166d4?w=400&h=300&fit=crop",
+              "https://images.unsplash.com/photo-1497215842964-222b430dc094?w=400&h=300&fit=crop",
+              "https://images.unsplash.com/photo-1604328698692-f76ea9498e76?w=400&h=300&fit=crop",
+              "https://images.unsplash.com/photo-1462826303086-329426d1aef5?w=400&h=300&fit=crop"
+            ].map((img, idx) => (
+              <div 
+                key={idx} 
+                className="aspect-[4/3] rounded-lg overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
+                onClick={() => setLightboxImage(img.replace('w=400&h=300', 'w=1200&h=900'))}
+              >
+                <img src={img} alt={`Raum Impression ${idx + 1}`} className="w-full h-full object-cover" />
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Room Info */}
+        <section className="py-12 px-4 max-w-6xl mx-auto border-t">
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             <div className="text-center p-6 bg-gray-50 rounded-xl">
               <div className="w-12 h-12 bg-[#0e4a6a] rounded-full flex items-center justify-center mx-auto mb-3">
@@ -922,6 +948,31 @@ export default function RoomRentalPage() {
                   />
                 )}
               </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Lightbox for Gallery */}
+        <AnimatePresence>
+          {lightboxImage && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90"
+              onClick={() => setLightboxImage(null)}
+            >
+              <button
+                onClick={() => setLightboxImage(null)}
+                className="absolute top-4 right-4 p-2 text-white hover:text-gray-300"
+              >
+                <X className="w-8 h-8" />
+              </button>
+              <img
+                src={lightboxImage}
+                alt="Raumansicht"
+                className="max-w-full max-h-[90vh] object-contain rounded-lg"
+              />
             </motion.div>
           )}
         </AnimatePresence>
