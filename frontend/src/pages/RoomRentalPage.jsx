@@ -595,36 +595,6 @@ export default function RoomRentalPage() {
   return (
     <AuthContext.Provider value={{ user, setUser }}>
       <div className="min-h-screen bg-white">
-        {/* Login Button - Top Right */}
-        <div className="absolute top-4 right-4 z-40">
-          {user ? (
-            <div className="flex items-center gap-3 bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 shadow-md">
-              <span className="text-sm text-gray-700">
-                {user.first_name}
-                {!user.is_approved && <span className="text-yellow-600 ml-1">(Nicht freigeschaltet)</span>}
-              </span>
-              {user.is_admin && (
-                <a href="/admin" className="text-sm text-[#0e4a6a] font-medium">Admin</a>
-              )}
-              <button
-                onClick={handleLogout}
-                className="p-1 text-gray-500 hover:text-gray-700"
-                data-testid="logout-btn"
-              >
-                <LogOut className="w-4 h-4" />
-              </button>
-            </div>
-          ) : (
-            <button
-              onClick={() => setShowAuth(true)}
-              className="bg-[#0e4a6a] text-white text-sm px-5 py-2 rounded-full hover:bg-[#1a6b94] transition-colors shadow-md"
-              data-testid="login-btn"
-            >
-              Anmelden
-            </button>
-          )}
-        </div>
-
         {/* Hero Section - Single Banner Image */}
         <section className="relative">
           <div className="h-[280px] relative overflow-hidden">
