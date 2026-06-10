@@ -490,6 +490,8 @@ export default function RoomRentalPage() {
   const [bookingSuccess, setBookingSuccess] = useState(null);
   const [myBookings, setMyBookings] = useState([]);
   const [lightboxImage, setLightboxImage] = useState(null);
+  const [availLoading, setAvailLoading] = useState(false);
+  const [availError, setAvailError] = useState(false);
 
   // Check for existing auth
   useEffect(() => {
@@ -508,13 +510,17 @@ export default function RoomRentalPage() {
   // Load availability when date changes
   useEffect(() => {
     if (selectedDate) {
+      setAvailLoading(true);
+      setAvailError(false);
+      setAvailability(null);
       axios.get(`${API}/bookings/availability/${selectedDate}`)
         .then(res => {
           setAvailability(res.data);
           setSelectedStart(null);
           setSelectedEnd(null);
         })
-        .catch(console.error);
+        .catch(() => setAvailError(true))
+        .finally(() => setAvailLoading(false));
     }
   }, [selectedDate]);
 
@@ -811,6 +817,19 @@ export default function RoomRentalPage() {
                     )}
                   </div>
                 )
+              ) : !selectedDate ? (
+                <div className="p-6 bg-gray-50 rounded-xl text-center text-gray-600">
+                  Bitte wählen Sie zuerst ein Datum
+                </div>
+              ) : availLoading ? (
+                <div className="p-6 bg-gray-50 rounded-xl text-center text-gray-600">
+                  Verfügbare Zeiten werden geladen …
+                </div>
+              ) : availError ? (
+                <div className="p-6 bg-amber-50 border border-amber-200 rounded-xl text-center text-amber-800">
+                  Die Online-Buchung ist gerade nicht erreichbar. Bitte versuchen Sie es
+                  später erneut oder kontaktieren Sie uns direkt.
+                </div>
               ) : (
                 <div className="p-6 bg-gray-50 rounded-xl text-center text-gray-600">
                   Bitte wählen Sie zuerst ein Datum
