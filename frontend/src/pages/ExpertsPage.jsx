@@ -123,7 +123,7 @@ const expertsData = [
     name: "Michaela Stabenow",
     role: "Heilpraktikerin Physiotherapie und Osteopathie",
     category: "Physiotherapie und Osteopathie",
-    image: "https://static.wixstatic.com/media/372f5a_ecd4d8ec06e74ede88ef9eedfb3aaad4~mv2.jpg/v1/crop/x_0,y_44,w_2623,h_2913/fill/w_330,h_367,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Michaela%20Stabenow%20Portrait%20f%C3%BCr%20Internets.jpg",
+    image: "/experts/michaela-stabenow.png",
     roomImage: "https://customer-assets.emergentagent.com/job_healing-portal-8/artifacts/zzgzyjbg_Stanenow%20Raum.png",
     description: "In meiner Privatpraxis für Physiotherapie und Osteopathie behandle ich Erwachsene, Kinder und Säuglinge ganzheitlich und individuell. Mit fundiertem Wissen als Heilpraktikerin und langjähriger Erfahrung verbinde ich klassische physiotherapeutische Ansätze mit osteopathischen Techniken, um die natürliche Balance des Körpers wiederherzustellen. Im Mittelpunkt steht stets der Mensch – mit seiner Geschichte, seinem Körper und seinem Wohlbefinden.",
     website: "www.osteo-stabenow.de",
