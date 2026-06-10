@@ -597,24 +597,24 @@ export default function RoomRentalPage() {
       <div className="min-h-screen bg-white">
         {/* Hero Section - Single Banner Image */}
         <section className="relative">
-          <div className="h-[280px] relative overflow-hidden">
+          <div className="h-[240px] sm:h-[320px] md:h-[400px] relative overflow-hidden">
             <img
               src={heroBannerImage}
               alt="Gruppentherapie"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20" />
-            
-            <div className="absolute bottom-12 left-0 right-0 text-center text-white">
-              <h1 className="text-4xl font-semibold mb-2">Gruppentherapieraum</h1>
-              <p className="text-lg opacity-90">zur Vermietung</p>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10" />
+
+            <div className="absolute bottom-8 sm:bottom-12 left-0 right-0 text-center text-white px-4">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 tracking-tight">Gruppentherapieraum</h1>
+              <p className="text-base sm:text-lg opacity-90">zur Vermietung</p>
             </div>
           </div>
         </section>
 
         {/* Room Gallery */}
         <section className="py-12 px-4 max-w-6xl mx-auto">
-          <h2 className="text-2xl font-semibold text-gray-800 text-center mb-8">Impressionen vom Gruppentherapieraum</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#1a3a4a] text-center mb-8">Impressionen vom Gruppentherapieraum</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {roomGalleryImages.map((img, idx) => (
               <div 

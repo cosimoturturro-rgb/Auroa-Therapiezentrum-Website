@@ -247,7 +247,7 @@ const Navigation = () => {
   );
 };
 
-// Expert Card Component - Original Aurora Style with expand functionality
+// Expert Card Component - modernes Karten-Design mit Aufklapp-Funktion
 const ExpertCard = ({ expert }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -255,53 +255,48 @@ const ExpertCard = ({ expert }) => {
     <motion.div
       layout
       data-testid={`expert-card-${expert.id}`}
-      className="bg-white flex flex-col items-center text-center"
+      className="group bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-shadow duration-300 p-6 sm:p-7 flex flex-col items-center text-center h-full"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
     >
-      {/* Profile Image - Circular like original - 30% larger */}
-      <div className="relative mb-6">
-        <div className="w-[280px] h-[280px] rounded-full overflow-hidden border-4 border-gray-100 shadow-md bg-white">
-          <img
-            src={expert.image}
-            alt={expert.name}
-            className="w-full h-full object-cover object-top"
-            style={expert.imageStyle || {}}
-          />
-        </div>
-        
-        {/* Expand Button - Only this triggers expand */}
-        <button
-          onClick={() => setIsExpanded(!isExpanded)}
-          className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-[#0e4a6a] rounded-full p-2.5 shadow-md hover:bg-[#1a6b94] transition-colors cursor-pointer"
-          data-testid={`expand-btn-${expert.id}`}
-        >
-          <motion.div
-            animate={{ rotate: isExpanded ? 180 : 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <ChevronDown className="w-6 h-6 text-white" />
-          </motion.div>
-        </button>
+      {/* Profile Image - responsive, dezenter Ring */}
+      <div className="w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 rounded-full overflow-hidden ring-4 ring-[#1a3a4a]/5 shadow-md bg-gray-50 mb-5">
+        <img
+          src={expert.image}
+          alt={expert.name}
+          className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+          style={expert.imageStyle || {}}
+          loading="lazy"
+        />
       </div>
 
-      {/* Role - 30% larger text */}
-      <p className="text-gray-600 text-lg mb-1 px-4 leading-relaxed">
-        {expert.role}
-      </p>
-
-      {/* Name - 30% larger */}
-      <h3 className="text-3xl font-semibold text-gray-800 mb-3">
+      {/* Name */}
+      <h3 className="text-xl sm:text-2xl font-semibold text-[#1a3a4a] mb-1.5">
         {expert.name}
       </h3>
 
-      {/* Hint to click - 30% larger */}
-      {!isExpanded && (
-        <p className="text-[#14b8a6] text-lg font-medium">
-          Klicken für mehr Infos
-        </p>
-      )}
+      {/* Role */}
+      <p className="text-sm sm:text-base text-gray-500 leading-relaxed mb-5 px-1">
+        {expert.role}
+      </p>
+
+      {/* Toggle Button */}
+      <button
+        onClick={() => setIsExpanded(!isExpanded)}
+        className="mt-auto inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium text-[#0e4a6a] bg-[#0e4a6a]/[0.07] hover:bg-[#0e4a6a]/[0.12] transition-colors cursor-pointer"
+        data-testid={`expand-btn-${expert.id}`}
+        aria-expanded={isExpanded}
+      >
+        {isExpanded ? "Weniger anzeigen" : "Mehr erfahren"}
+        <motion.span
+          animate={{ rotate: isExpanded ? 180 : 0 }}
+          transition={{ duration: 0.3 }}
+          className="inline-flex"
+        >
+          <ChevronDown className="w-4 h-4" />
+        </motion.span>
+      </button>
 
       {/* Expanded Content */}
       <AnimatePresence>
@@ -313,19 +308,20 @@ const ExpertCard = ({ expert }) => {
             transition={{ duration: 0.4, ease: "easeInOut" }}
             className="overflow-hidden w-full"
           >
-            {/* Room Image - only show if available */}
+            {/* Room Image */}
             {expert.roomImage && (
-              <div className="my-4 rounded-lg overflow-hidden shadow-md mx-4">
+              <div className="mt-6 rounded-2xl overflow-hidden shadow-sm">
                 <img
                   src={expert.roomImage}
                   alt={`Praxisraum von ${expert.name}`}
-                  className="w-full h-auto object-contain"
+                  className="w-full h-auto object-cover"
+                  loading="lazy"
                 />
               </div>
             )}
 
-            {/* Description - 30% larger */}
-            <div className="text-gray-600 text-lg leading-relaxed mb-4 px-4 text-left">
+            {/* Description */}
+            <div className="text-gray-600 text-sm sm:text-base leading-relaxed mt-5 text-left">
               {expert.description.split('\n\n').map((paragraph, idx) => (
                 <p key={idx} className={idx > 0 ? 'mt-3' : ''}>
                   {paragraph}
@@ -333,16 +329,15 @@ const ExpertCard = ({ expert }) => {
               ))}
             </div>
 
-            {/* Contact Links - 30% larger */}
-            <div className="flex flex-wrap justify-center gap-3 px-4 pb-2">
+            {/* Contact Links als Pills */}
+            <div className="flex flex-wrap justify-center gap-2 mt-5">
               {expert.email && (
                 <a
                   href={`mailto:${expert.email}`}
-                  onClick={(e) => e.stopPropagation()}
-                  className="inline-flex items-center gap-2 px-4 py-2 text-[#0e4a6a] text-lg hover:underline"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm text-[#0e4a6a] bg-gray-50 hover:bg-gray-100 transition-colors break-all"
                   data-testid={`email-link-${expert.id}`}
                 >
-                  <Mail className="w-6 h-6" />
+                  <Mail className="w-4 h-4 shrink-0" />
                   {expert.email}
                 </a>
               )}
@@ -351,39 +346,38 @@ const ExpertCard = ({ expert }) => {
                   href={`https://${expert.website}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()}
-                  className="inline-flex items-center gap-2 px-4 py-2 text-[#0e4a6a] text-lg hover:underline"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm text-[#0e4a6a] bg-gray-50 hover:bg-gray-100 transition-colors"
                   data-testid={`website-link-${expert.id}`}
                 >
-                  <Globe className="w-6 h-6" />
+                  <Globe className="w-4 h-4 shrink-0" />
                   {expert.website}
                 </a>
               )}
               {expert.phone && (
                 <a
                   href={`tel:${expert.phone}`}
-                  onClick={(e) => e.stopPropagation()}
-                  className="inline-flex items-center gap-2 px-4 py-2 text-[#0e4a6a] text-lg hover:underline"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm text-[#0e4a6a] bg-gray-50 hover:bg-gray-100 transition-colors"
                   data-testid={`phone-link-${expert.id}`}
                 >
-                  <Phone className="w-6 h-6" />
+                  <Phone className="w-4 h-4 shrink-0" />
                   {expert.phone}
                 </a>
               )}
-              {expert.doctolibUrl && (
-                <a
-                  href={expert.doctolibUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()}
-                  className="inline-flex items-center justify-center gap-2 mt-4 px-10 py-4 bg-[#107ACA] text-white font-medium rounded-lg hover:bg-[#0d6ab8] transition-all shadow-md hover:shadow-lg"
-                  data-testid={`doctolib-link-${expert.id}`}
-                >
-                  <Calendar className="w-6 h-6" />
-                  <span className="text-xl">Terminbuchung bei Doctolib</span>
-                </a>
-              )}
             </div>
+
+            {/* Doctolib Button */}
+            {expert.doctolibUrl && (
+              <a
+                href={expert.doctolibUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 mt-5 w-full px-6 py-3.5 bg-[#107ACA] text-white font-medium rounded-xl hover:bg-[#0d6ab8] transition-all shadow-sm hover:shadow-md"
+                data-testid={`doctolib-link-${expert.id}`}
+              >
+                <Calendar className="w-5 h-5" />
+                <span>Terminbuchung bei Doctolib</span>
+              </a>
+            )}
           </motion.div>
         )}
       </AnimatePresence>
@@ -391,47 +385,41 @@ const ExpertCard = ({ expert }) => {
   );
 };
 
-// Main Page Component - Matching Aurora Wix Style
+// Main Page Component - Aurora Therapiezentrum
 export default function ExpertsPage() {
   return (
-    <div className="min-h-screen bg-white">
-      {/* Navigation removed for iframe embedding */}
-      {/* Hero banner removed for iframe embedding */}
-      {/* Intro text removed for iframe embedding */}
+    <div className="min-h-screen bg-gradient-to-b from-gray-50/60 to-white">
+      {/* Navigation/Hero entfernt für iframe-Einbettung */}
 
       {/* Experts by Category */}
-      <section className="py-8 px-4">
-        <div className="max-w-5xl mx-auto">
+      <section className="py-10 md:py-16 px-4">
+        <div className="max-w-6xl mx-auto">
           {categories.map((category) => {
             const categoryExperts = expertsData.filter(e => e.category === category);
             if (categoryExperts.length === 0) return null;
 
             return (
-              <div key={category} className="mb-24">
-                {/* Category Header - 30% larger */}
-                <h2 
-                  className="text-4xl font-semibold text-gray-800 text-center mb-16"
-                  data-testid={`category-${category.toLowerCase().replace(/\s+/g, '-')}`}
-                >
-                  {category}
-                </h2>
+              <div key={category} className="mb-14 md:mb-20">
+                {/* Category Header mit Gold-Akzent */}
+                <div className="text-center mb-8 md:mb-12">
+                  <h2
+                    className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1a3a4a]"
+                    data-testid={`category-${category.toLowerCase().replace(/\s+/g, '-')}`}
+                  >
+                    {category}
+                  </h2>
+                  <div className="mt-3 mx-auto h-1 w-16 rounded-full bg-[#d4a574]" />
+                </div>
 
-                {/* Experts Grid - more spacing */}
-                <div className={`grid gap-20 ${categoryExperts.length === 1 ? 'grid-cols-1 max-w-lg mx-auto' : 'grid-cols-1 md:grid-cols-2'}`}>
-                  {categoryExperts.map((expert, index) => {
-                    // Wenn ungerade Anzahl und letztes Element, zentrieren
-                    const isLastAndOdd = categoryExperts.length % 2 === 1 && index === categoryExperts.length - 1;
-                    return (
-                      <div 
-                        key={expert.id} 
-                        className={isLastAndOdd ? 'md:col-span-2 flex justify-center' : ''}
-                      >
-                        <div className={isLastAndOdd ? 'w-full max-w-sm' : 'w-full'}>
-                          <ExpertCard expert={expert} />
-                        </div>
-                      </div>
-                    );
-                  })}
+                {/* Experts Grid - responsiv, bis 3 Spalten */}
+                <div className={`grid gap-6 sm:gap-8 items-stretch ${
+                  categoryExperts.length === 1
+                    ? 'grid-cols-1 max-w-md mx-auto'
+                    : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
+                }`}>
+                  {categoryExperts.map((expert) => (
+                    <ExpertCard key={expert.id} expert={expert} />
+                  ))}
                 </div>
               </div>
             );
