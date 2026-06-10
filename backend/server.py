@@ -14,7 +14,7 @@ import bcrypt
 import jwt
 from datetime import datetime, timezone, timedelta
 import resend
-from emergentintegrations.payments.stripe.checkout import StripeCheckout, CheckoutSessionResponse, CheckoutSessionRequest
+import stripe
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
@@ -29,7 +29,12 @@ JWT_SECRET = os.environ.get('JWT_SECRET', 'aurora-therapy-secret-key-2024')
 JWT_ALGORITHM = "HS256"
 
 # Stripe
-STRIPE_API_KEY = os.environ.get('STRIPE_API_KEY', 'sk_test_emergent')
+STRIPE_API_KEY = os.environ.get('STRIPE_API_KEY', '')
+STRIPE_WEBHOOK_SECRET = os.environ.get('STRIPE_WEBHOOK_SECRET', '')
+stripe.api_key = STRIPE_API_KEY
+
+# Default-Admin (Passwort per Env überschreibbar)
+ADMIN_DEFAULT_PASSWORD = os.environ.get('ADMIN_PASSWORD', 'Aurora2024!')
 
 # Resend Email
 RESEND_API_KEY = os.environ.get('RESEND_API_KEY', '')
@@ -479,34 +484,42 @@ async def create_checkout_session(booking_id: str, request: Request, user: dict 
     if booking["status"] != "pending_payment":
         raise HTTPException(status_code=400, detail="Buchung kann nicht bezahlt werden")
     
-    host_url = str(request.base_url).rstrip('/')
-    webhook_url = f"{host_url}/api/webhook/stripe"
-    
-    stripe_checkout = StripeCheckout(api_key=STRIPE_API_KEY, webhook_url=webhook_url)
-    
-    # Get origin from request headers for success/cancel URLs
-    origin = request.headers.get("origin", host_url)
+    # Erfolgs-/Abbruch-URLs vom Origin des Aufrufers ableiten
+    origin = request.headers.get("origin", str(request.base_url).rstrip('/'))
     success_url = f"{origin}/raumvermietung/booking-success?session_id={{CHECKOUT_SESSION_ID}}"
-    cancel_url = f"{origin}/raumvermietung/booking?cancelled=true"
-    
-    checkout_request = CheckoutSessionRequest(
-        amount=float(booking["total_price"]),
-        currency="eur",
-        success_url=success_url,
-        cancel_url=cancel_url,
-        metadata={
-            "booking_id": booking_id,
-            "user_id": user["id"],
-            "user_email": user["email"]
-        }
-    )
-    
-    session: CheckoutSessionResponse = await stripe_checkout.create_checkout_session(checkout_request)
-    
+    cancel_url = f"{origin}/raumvermietung?cancelled=true"
+
+    amount_cents = int(round(float(booking["total_price"]) * 100))
+    slot_label = f"{booking['date']} {booking['start_hour']}:00-{booking['end_hour']}:00 Uhr"
+
+    try:
+        session = await asyncio.to_thread(
+            stripe.checkout.Session.create,
+            mode="payment",
+            line_items=[{
+                "price_data": {
+                    "currency": "eur",
+                    "product_data": {"name": f"Gruppentherapieraum – {slot_label}"},
+                    "unit_amount": amount_cents,
+                },
+                "quantity": 1,
+            }],
+            success_url=success_url,
+            cancel_url=cancel_url,
+            metadata={
+                "booking_id": booking_id,
+                "user_id": user["id"],
+                "user_email": user["email"],
+            },
+        )
+    except Exception as e:
+        logging.error(f"Stripe checkout error: {e}")
+        raise HTTPException(status_code=502, detail="Zahlungsanbieter nicht erreichbar")
+
     # Store payment transaction
     await db.payment_transactions.insert_one({
         "id": str(uuid.uuid4()),
-        "session_id": session.session_id,
+        "session_id": session.id,
         "booking_id": booking_id,
         "user_id": user["id"],
         "user_email": user["email"],
@@ -516,30 +529,31 @@ async def create_checkout_session(booking_id: str, request: Request, user: dict 
         "payment_status": "pending",
         "created_at": datetime.now(timezone.utc).isoformat()
     })
-    
-    return {"checkout_url": session.url, "session_id": session.session_id}
+
+    return {"checkout_url": session.url, "session_id": session.id}
 
 @payment_router.get("/status/{session_id}")
-async def get_payment_status(session_id: str, request: Request, user: dict = Depends(get_current_user)):
+async def get_payment_status(session_id: str, user: dict = Depends(get_current_user)):
     """Check payment status and update booking if paid"""
-    host_url = str(request.base_url).rstrip('/')
-    webhook_url = f"{host_url}/api/webhook/stripe"
-    
-    stripe_checkout = StripeCheckout(api_key=STRIPE_API_KEY, webhook_url=webhook_url)
-    
-    status = await stripe_checkout.get_checkout_status(session_id)
-    
+    try:
+        session = await asyncio.to_thread(stripe.checkout.Session.retrieve, session_id)
+    except Exception as e:
+        logging.error(f"Stripe status error: {e}")
+        raise HTTPException(status_code=502, detail="Zahlungsstatus nicht abrufbar")
+
+    payment_status = session.get("payment_status")
+
     # Update transaction status
     transaction = await db.payment_transactions.find_one({"session_id": session_id}, {"_id": 0})
-    
-    if transaction and status.payment_status == "paid":
+
+    if transaction and payment_status == "paid":
         # Check if not already processed
         if transaction.get("payment_status") != "paid":
             await db.payment_transactions.update_one(
                 {"session_id": session_id},
-                {"$set": {"status": status.status, "payment_status": status.payment_status}}
+                {"$set": {"status": session.get("status"), "payment_status": payment_status}}
             )
-            
+
             # Update booking status
             booking_id = transaction.get("booking_id")
             if booking_id:
@@ -547,20 +561,20 @@ async def get_payment_status(session_id: str, request: Request, user: dict = Dep
                     {"id": booking_id},
                     {"$set": {"status": "paid", "paid_at": datetime.now(timezone.utc).isoformat()}}
                 )
-                
+
                 # Get booking and user for notifications
                 booking = await db.bookings.find_one({"id": booking_id}, {"_id": 0})
                 user_data = await db.users.find_one({"id": transaction["user_id"]}, {"_id": 0})
-                
+
                 if booking and user_data:
                     await notify_booking_confirmed(user_data, booking)
                     await notify_admin_new_booking(user_data, booking)
-    
+
     return {
-        "status": status.status,
-        "payment_status": status.payment_status,
-        "amount_total": status.amount_total,
-        "currency": status.currency
+        "status": session.get("status"),
+        "payment_status": payment_status,
+        "amount_total": session.get("amount_total"),
+        "currency": session.get("currency")
     }
 
 @api_router.post("/webhook/stripe")
@@ -568,36 +582,34 @@ async def stripe_webhook(request: Request):
     """Handle Stripe webhooks"""
     body = await request.body()
     sig = request.headers.get("Stripe-Signature")
-    
-    host_url = str(request.base_url).rstrip('/')
-    webhook_url = f"{host_url}/api/webhook/stripe"
-    
-    stripe_checkout = StripeCheckout(api_key=STRIPE_API_KEY, webhook_url=webhook_url)
-    
+
+    if not STRIPE_WEBHOOK_SECRET:
+        logging.warning("Kein STRIPE_WEBHOOK_SECRET gesetzt - Webhook wird ignoriert")
+        return {"status": "ignored"}
+
     try:
-        webhook_response = await stripe_checkout.handle_webhook(body, sig)
-        
-        if webhook_response.payment_status == "paid":
-            session_id = webhook_response.session_id
-            booking_id = webhook_response.metadata.get("booking_id")
-            
+        event = stripe.Webhook.construct_event(body, sig, STRIPE_WEBHOOK_SECRET)
+    except Exception as e:
+        logging.error(f"Webhook signature error: {e}")
+        raise HTTPException(status_code=400, detail="Ungültige Webhook-Signatur")
+
+    if event.get("type") == "checkout.session.completed":
+        session = event["data"]["object"]
+        if session.get("payment_status") == "paid":
+            session_id = session.get("id")
+            booking_id = (session.get("metadata") or {}).get("booking_id")
+
             if booking_id:
-                # Update booking
                 await db.bookings.update_one(
                     {"id": booking_id, "status": "pending_payment"},
                     {"$set": {"status": "paid", "paid_at": datetime.now(timezone.utc).isoformat()}}
                 )
-                
-                # Update transaction
                 await db.payment_transactions.update_one(
                     {"session_id": session_id},
                     {"$set": {"status": "complete", "payment_status": "paid"}}
                 )
-        
-        return {"status": "processed"}
-    except Exception as e:
-        logging.error(f"Webhook error: {e}")
-        return {"status": "error"}
+
+    return {"status": "processed"}
 
 # ============== ADMIN ROUTES ==============
 
@@ -739,7 +751,7 @@ async def create_default_admin():
         admin_user = {
             "id": str(uuid.uuid4()),
             "email": "admin@aurora-therapiezentrum.de",
-            "password_hash": hash_password("Aurora2024!"),
+            "password_hash": hash_password(ADMIN_DEFAULT_PASSWORD),
             "first_name": "Admin",
             "last_name": "Aurora",
             "company": "Aurora Therapiezentrum",
@@ -749,4 +761,4 @@ async def create_default_admin():
             "created_at": datetime.now(timezone.utc).isoformat()
         }
         await db.users.insert_one(admin_user)
-        logger.info("Default admin user created: admin@aurora-therapiezentrum.de / Aurora2024!")
+        logger.info("Default admin user created: admin@aurora-therapiezentrum.de (Passwort siehe ADMIN_PASSWORD)")
