@@ -415,6 +415,8 @@ export default function ExpertsPage() {
                 <div className={`grid gap-6 sm:gap-8 items-stretch ${
                   categoryExperts.length === 1
                     ? 'grid-cols-1 max-w-md mx-auto'
+                    : categoryExperts.length === 2
+                    ? 'grid-cols-1 sm:grid-cols-2 max-w-3xl mx-auto'
                     : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
                 }`}>
                   {categoryExperts.map((expert) => (
