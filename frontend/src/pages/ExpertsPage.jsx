@@ -248,9 +248,8 @@ const Navigation = () => {
 };
 
 // Expert Card Component - modernes Karten-Design mit Aufklapp-Funktion
-const ExpertCard = ({ expert }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-
+// isExpanded/onToggle werden von der Seite gesteuert (immer nur eine Karte offen)
+const ExpertCard = ({ expert, isExpanded, onToggle }) => {
   return (
     <motion.div
       layout
@@ -283,7 +282,7 @@ const ExpertCard = ({ expert }) => {
 
       {/* Toggle Button */}
       <button
-        onClick={() => setIsExpanded(!isExpanded)}
+        onClick={onToggle}
         className="mt-auto inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium text-[#0e4a6a] bg-[#0e4a6a]/[0.07] hover:bg-[#0e4a6a]/[0.12] transition-colors cursor-pointer"
         data-testid={`expand-btn-${expert.id}`}
         aria-expanded={isExpanded}
@@ -387,6 +386,9 @@ const ExpertCard = ({ expert }) => {
 
 // Main Page Component - Aurora Therapiezentrum
 export default function ExpertsPage() {
+  // Immer nur ein Profil gleichzeitig geöffnet -> vorhersehbare Höhe fürs Einbetten
+  const [openId, setOpenId] = useState(null);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50/60 to-white">
       {/* Navigation/Hero entfernt für iframe-Einbettung */}
@@ -420,7 +422,12 @@ export default function ExpertsPage() {
                     : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
                 }`}>
                   {categoryExperts.map((expert) => (
-                    <ExpertCard key={expert.id} expert={expert} />
+                    <ExpertCard
+                      key={expert.id}
+                      expert={expert}
+                      isExpanded={openId === expert.id}
+                      onToggle={() => setOpenId(openId === expert.id ? null : expert.id)}
+                    />
                   ))}
                 </div>
               </div>
