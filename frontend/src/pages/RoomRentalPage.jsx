@@ -499,6 +499,13 @@ export default function RoomRentalPage() {
     const savedUser = localStorage.getItem("aurora_user");
     if (token && savedUser) {
       setUser(JSON.parse(savedUser));
+      // Aktuellen Status (z.B. Freischaltung) frisch vom Server holen
+      axios.get(`${API}/auth/me`, { headers: { Authorization: `Bearer ${token}` } })
+        .then(res => {
+          setUser(res.data);
+          localStorage.setItem("aurora_user", JSON.stringify(res.data));
+        })
+        .catch(() => {});
     }
   }, []);
 
@@ -713,11 +720,31 @@ export default function RoomRentalPage() {
             )}
             
             {user && !user.is_approved && (
-              <div className="mt-6 pt-4 border-t border-yellow-300 bg-yellow-50 -mx-6 -mb-6 px-6 py-4 rounded-b-xl">
+              <div className="mt-6 pt-4 border-t border-yellow-300 bg-yellow-50 -mx-6 -mb-6 px-6 py-4 rounded-b-xl flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                 <p className="text-yellow-800 font-medium flex items-center gap-2">
                   <Clock className="w-5 h-5" />
                   Ihr Konto wartet auf Freischaltung. Sie werden per E-Mail benachrichtigt.
                 </p>
+                <button
+                  onClick={handleLogout}
+                  className="text-sm text-yellow-800 underline hover:no-underline whitespace-nowrap"
+                >
+                  Abmelden
+                </button>
+              </div>
+            )}
+
+            {user && user.is_approved && (
+              <div className="mt-6 pt-4 border-t border-[#0e4a6a]/20 flex items-center justify-between gap-3 text-sm">
+                <span className="text-[#0e4a6a]">
+                  Angemeldet als {user.first_name} {user.last_name}
+                </span>
+                <button
+                  onClick={handleLogout}
+                  className="inline-flex items-center gap-1.5 text-gray-600 underline hover:no-underline"
+                >
+                  <LogOut className="w-4 h-4" /> Abmelden
+                </button>
               </div>
             )}
           </div>
