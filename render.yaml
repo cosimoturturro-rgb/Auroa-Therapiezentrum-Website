@@ -1,6 +1,7 @@
-# Render Blueprint für das Aurora-Backend (FastAPI + MongoDB Atlas + Stripe)
-# Anleitung: render.com -> New -> Blueprint -> dieses Repo wählen.
-# Die mit "sync: false" markierten Werte trägst du im Render-Dashboard ein (Secrets).
+# Render Blueprint für das Aurora-Backend (FastAPI + MongoDB Atlas)
+# render.com -> New -> Blueprint -> dieses Repo wählen.
+# Render fragt beim Anlegen nur nach MONGO_URL und ADMIN_PASSWORD.
+# Stripe-Keys tragen wir später im Render-Dashboard nach (Schritt 4).
 services:
   - type: web
     name: aurora-backend
@@ -15,21 +16,15 @@ services:
         value: "3.12.8"
       - key: DB_NAME
         value: aurora
-      - key: MONGO_URL          # MongoDB-Atlas Connection-String (Secret)
-        sync: false
-      - key: JWT_SECRET         # langer Zufallsstring
-        sync: false
-      - key: STRIPE_API_KEY     # sk_live_... oder sk_test_...
-        sync: false
-      - key: STRIPE_WEBHOOK_SECRET  # whsec_...
-        sync: false
-      - key: ADMIN_PASSWORD     # starkes Admin-Passwort
-        sync: false
-      - key: CORS_ORIGINS       # z.B. https://auroa-therapiezentrum-website.vercel.app,https://www.aurora-therapiezentrum.de
-        sync: false
-      - key: RESEND_API_KEY     # optional (E-Mails); leer lassen = keine Mails
-        sync: false
+      - key: CORS_ORIGINS
+        value: "https://auroa-therapiezentrum-website.vercel.app"
       - key: SENDER_EMAIL
         value: onboarding@resend.dev
       - key: ADMIN_EMAIL
         value: info@aurora-therapiezentrum.de
+      - key: JWT_SECRET
+        generateValue: true
+      - key: MONGO_URL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
